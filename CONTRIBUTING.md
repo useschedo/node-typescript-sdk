@@ -42,15 +42,15 @@ If you’d like to use the repository from source, you can either install from g
 To install via git:
 
 ```sh
-$ npm install git+ssh://git@github.com:stainless-sdks/Schedo-typescript.git
+$ npm install git+ssh://git@github.com:useschedo/node-typescript-sdk.git
 ```
 
 Alternatively, to link a local copy of the repo:
 
 ```sh
 # Clone
-$ git clone https://www.github.com/stainless-sdks/Schedo-typescript
-$ cd Schedo-typescript
+$ git clone https://www.github.com/useschedo/node-typescript-sdk
+$ cd node-typescript-sdk
 
 # With yarn
 $ yarn link
