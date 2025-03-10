@@ -70,7 +70,7 @@ export interface ClientOptions {
   /**
    * Defaults to process.env['SCHEDO_API_KEY'].
    */
-  apiKey?: string | null | undefined;
+  apiKey?: string | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -145,7 +145,7 @@ type FinalizedRequestInit = RequestInit & { headers: Headers };
  * API Client for interfacing with the Schedo API.
  */
 export class Schedo {
-  apiKey: string | null;
+  apiKey: string;
 
   baseURL: string;
   maxRetries: number;
@@ -162,7 +162,7 @@ export class Schedo {
   /**
    * API Client for interfacing with the Schedo API.
    *
-   * @param {string | null | undefined} [opts.apiKey=process.env['SCHEDO_API_KEY'] ?? null]
+   * @param {string | undefined} [opts.apiKey=process.env['SCHEDO_API_KEY'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['SCHEDO_BASE_URL'] ?? //api.schedo.dev//api.schedo.dev/api] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
@@ -173,9 +173,15 @@ export class Schedo {
    */
   constructor({
     baseURL = readEnv('SCHEDO_BASE_URL'),
-    apiKey = readEnv('SCHEDO_API_KEY') ?? null,
+    apiKey = readEnv('SCHEDO_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
+    if (apiKey === undefined) {
+      throw new Errors.SchedoError(
+        "The SCHEDO_API_KEY environment variable is missing or empty; either provide it, or instantiate the Schedo client with an apiKey option, like new Schedo({ apiKey: 'My API Key' }).",
+      );
+    }
+
     const options: ClientOptions = {
       apiKey,
       ...opts,
@@ -207,23 +213,11 @@ export class Schedo {
   }
 
   protected validateHeaders({ values, nulls }: NullableHeaders) {
-    if (this.apiKey && values.get('authorization')) {
-      return;
-    }
-    if (nulls.has('authorization')) {
-      return;
-    }
-
-    throw new Error(
-      'Could not resolve authentication method. Expected the apiKey to be set. Or for the "Authorization" headers to be explicitly omitted',
-    );
+    return;
   }
 
   protected authHeaders(opts: FinalRequestOptions): Headers | undefined {
-    if (this.apiKey == null) {
-      return undefined;
-    }
-    return new Headers({ Authorization: `Bearer ${this.apiKey}` });
+    return new Headers({ 'x-api-key': this.apiKey });
   }
 
   /**
