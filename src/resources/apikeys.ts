@@ -12,6 +12,13 @@ export class Apikeys extends APIResource {
   create(body: ApikeyCreateParams, options?: RequestOptions): APIPromise<APIKey> {
     return this._client.post('/apikeys', { body, ...options });
   }
+
+  /**
+   * Returns a list of API Keys for the organization
+   */
+  list(options?: RequestOptions): APIPromise<ApikeyListResponse> {
+    return this._client.get('/apikeys', options);
+  }
 }
 
 export interface APIKey {
@@ -59,6 +66,8 @@ export interface APIKeyEdges {
   organization?: OrgAPI.Org;
 }
 
+export type ApikeyListResponse = Array<Array<APIKey>>;
+
 export interface ApikeyCreateParams {
   name: string;
 }
@@ -67,6 +76,7 @@ export declare namespace Apikeys {
   export {
     type APIKey as APIKey,
     type APIKeyEdges as APIKeyEdges,
+    type ApikeyListResponse as ApikeyListResponse,
     type ApikeyCreateParams as ApikeyCreateParams,
   };
 }
