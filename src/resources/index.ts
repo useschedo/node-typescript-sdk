@@ -5,6 +5,7 @@ export {
   type APIKey,
   type APIKeyEdges,
   type ApikeyListResponse,
+  type ApikeyRevokeResponse,
   type ApikeyCreateParams,
 } from './apikeys';
 export { OrgResource, type Org, type OrgEdges } from './org';
