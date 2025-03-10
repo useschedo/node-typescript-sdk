@@ -42,6 +42,11 @@ export interface APIKey {
   organization_id?: number;
 
   /**
+   * Revoked holds the value of the "revoked" field.
+   */
+  revoked?: boolean;
+
+  /**
    * UpdatedAt holds the value of the "updated_at" field.
    */
   updated_at?: string;
