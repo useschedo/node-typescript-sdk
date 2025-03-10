@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
-import * as OrgAPI from './org';
 import { APIPromise } from '../api-promise';
 import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Apikeys extends APIResource {
   /**
@@ -19,13 +19,20 @@ export class Apikeys extends APIResource {
   list(options?: RequestOptions): APIPromise<ApikeyListResponse> {
     return this._client.get('/apikeys', options);
   }
+
+  /**
+   * Revokes an API Key making it inactive
+   */
+  revoke(id: number, options?: RequestOptions): APIPromise<ApikeyRevokeResponse> {
+    return this._client.delete(path`/apikeys/revoke/${id}`, options);
+  }
 }
 
 export interface APIKey {
   /**
-   * Key holds the value of the "key" field.
+   * ID of the ent.
    */
-  id?: string;
+  id?: number;
 
   /**
    * CreatedAt holds the value of the "created_at" field.
@@ -52,21 +59,13 @@ export interface APIKey {
    * Revoked holds the value of the "revoked" field.
    */
   revoked?: boolean;
-
-  /**
-   * UpdatedAt holds the value of the "updated_at" field.
-   */
-  updated_at?: string;
 }
 
-export interface APIKeyEdges {
-  /**
-   * Organization holds the value of the organization edge.
-   */
-  organization?: OrgAPI.Org;
-}
+export type APIKeyEdges = unknown;
 
 export type ApikeyListResponse = Array<Array<APIKey>>;
+
+export type ApikeyRevokeResponse = Array<Array<APIKey>>;
 
 export interface ApikeyCreateParams {
   name: string;
@@ -77,6 +76,7 @@ export declare namespace Apikeys {
     type APIKey as APIKey,
     type APIKeyEdges as APIKeyEdges,
     type ApikeyListResponse as ApikeyListResponse,
+    type ApikeyRevokeResponse as ApikeyRevokeResponse,
     type ApikeyCreateParams as ApikeyCreateParams,
   };
 }
