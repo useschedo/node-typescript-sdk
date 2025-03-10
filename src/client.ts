@@ -18,7 +18,7 @@ import { APIPromise } from './api-promise';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
-import { APIKey, APIKeyEdges, ApikeyCreateParams, Apikeys } from './resources/apikeys';
+import { APIKey, APIKeyEdges, ApikeyCreateParams, ApikeyListResponse, Apikeys } from './resources/apikeys';
 import { Org, OrgEdges, OrgResource } from './resources/org';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
@@ -735,6 +735,7 @@ export declare namespace Schedo {
     Apikeys as Apikeys,
     type APIKey as APIKey,
     type APIKeyEdges as APIKeyEdges,
+    type ApikeyListResponse as ApikeyListResponse,
     type ApikeyCreateParams as ApikeyCreateParams,
   };
 
