@@ -26,6 +26,13 @@ import {
   ApikeyRevokeResponse,
   Apikeys,
 } from './resources/apikeys';
+import {
+  Environment,
+  EnvironmentCreatedParams,
+  EnvironmentEdges,
+  EnvironmentListResponse,
+  Environments,
+} from './resources/environments';
 import { Org, OrgEdges, OrgResource } from './resources/org';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
@@ -725,9 +732,11 @@ export class Schedo {
   static toFile = Uploads.toFile;
 
   apikeys: API.Apikeys = new API.Apikeys(this);
+  environments: API.Environments = new API.Environments(this);
   org: API.OrgResource = new API.OrgResource(this);
 }
 Schedo.Apikeys = Apikeys;
+Schedo.Environments = Environments;
 Schedo.OrgResource = OrgResource;
 export declare namespace Schedo {
   export type RequestOptions = Opts.RequestOptions;
@@ -739,6 +748,14 @@ export declare namespace Schedo {
     type ApikeyListResponse as ApikeyListResponse,
     type ApikeyRevokeResponse as ApikeyRevokeResponse,
     type ApikeyCreateParams as ApikeyCreateParams,
+  };
+
+  export {
+    Environments as Environments,
+    type Environment as Environment,
+    type EnvironmentEdges as EnvironmentEdges,
+    type EnvironmentListResponse as EnvironmentListResponse,
+    type EnvironmentCreatedParams as EnvironmentCreatedParams,
   };
 
   export { OrgResource as OrgResource, type Org as Org, type OrgEdges as OrgEdges };
