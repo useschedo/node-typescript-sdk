@@ -8,4 +8,11 @@ export {
   type ApikeyRevokeResponse,
   type ApikeyCreateParams,
 } from './apikeys';
+export {
+  Environments,
+  type Environment,
+  type EnvironmentEdges,
+  type EnvironmentListResponse,
+  type EnvironmentCreatedParams,
+} from './environments';
 export { OrgResource, type Org, type OrgEdges } from './org';
