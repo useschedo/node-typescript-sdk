@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2025-03-11)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#15](https://github.com/useschedo/node-typescript-sdk/issues/15)) ([834004b](https://github.com/useschedo/node-typescript-sdk/commit/834004b7fc4cc7c59ffbceab3ab82e5a462667fe))
+* **api:** api update ([#18](https://github.com/useschedo/node-typescript-sdk/issues/18)) ([b9132e1](https://github.com/useschedo/node-typescript-sdk/commit/b9132e1756c709dbcfb8a5dde53e8fa8e2f35e14))
+* **client:** accept RFC6838 JSON content types ([#17](https://github.com/useschedo/node-typescript-sdk/issues/17)) ([89d1c6d](https://github.com/useschedo/node-typescript-sdk/commit/89d1c6d6c6de3d3a3defae4b92e21ef4331a7c3f))
+
 ## 0.1.0-alpha.4 (2025-03-10)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
