@@ -46,6 +46,21 @@ export interface APIKey {
   edges?: APIKeyEdges;
 
   /**
+   * EnvironmentID holds the value of the "environment_id" field.
+   */
+  environment_id?: number;
+
+  /**
+   * Internal holds the value of the "internal" field.
+   */
+  internal?: boolean;
+
+  /**
+   * Key holds the value of the "key" field.
+   */
+  key?: string;
+
+  /**
    * Name holds the value of the "name" field.
    */
   name?: string;
