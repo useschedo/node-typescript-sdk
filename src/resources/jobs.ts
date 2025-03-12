@@ -1,8 +1,22 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
+import { APIPromise } from '../api-promise';
+import { buildHeaders } from '../internal/headers';
+import { RequestOptions } from '../internal/request-options';
 
-export class Jobs extends APIResource {}
+export class Jobs extends APIResource {
+  /**
+   * List all jobs
+   */
+  list(params: JobListParams, options?: RequestOptions): APIPromise<Job> {
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.get('/jobs', {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment }, options?.headers]),
+    });
+  }
+}
 
 export interface Job {
   /**
@@ -89,6 +103,13 @@ export interface JobEdges {
   executions?: Array<unknown>;
 }
 
+export interface JobListParams {
+  /**
+   * 1
+   */
+  'X-API-ENVIRONMENT': string;
+}
+
 export declare namespace Jobs {
-  export { type Job as Job, type JobEdges as JobEdges };
+  export { type Job as Job, type JobEdges as JobEdges, type JobListParams as JobListParams };
 }
