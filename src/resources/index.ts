@@ -4,9 +4,9 @@ export {
   Apikeys,
   type APIKey,
   type APIKeyEdges,
+  type ApikeyListResponse,
   type ApikeyRevokeResponse,
   type ApikeyCreateParams,
-  type ApikeyListParams,
 } from './apikeys';
 export {
   Environments,
@@ -15,5 +15,5 @@ export {
   type EnvironmentListResponse,
   type EnvironmentCreatedParams,
 } from './environments';
-export { Jobs, type Job, type JobEdges } from './jobs';
+export { Jobs, type Job, type JobEdges, type JobListParams } from './jobs';
 export { OrgResource, type Org, type OrgEdges } from './org';
