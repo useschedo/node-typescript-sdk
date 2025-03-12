@@ -2,15 +2,20 @@
 
 import { APIResource } from '../resource';
 import { APIPromise } from '../api-promise';
+import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
 export class Apikeys extends APIResource {
   /**
-   * Generates a new API Key to access Schedo.dev API
+   * List all jobs
    */
-  create(body: ApikeyCreateParams, options?: RequestOptions): APIPromise<APIKey> {
-    return this._client.post('/apikeys', { body, ...options });
+  create(params: ApikeyCreateParams, options?: RequestOptions): APIPromise<APIKey> {
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.post('/apikeys', {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment }, options?.headers]),
+    });
   }
 
   /**
@@ -83,7 +88,10 @@ export type ApikeyListResponse = Array<Array<APIKey>>;
 export type ApikeyRevokeResponse = Array<Array<APIKey>>;
 
 export interface ApikeyCreateParams {
-  name: string;
+  /**
+   * 1
+   */
+  'X-API-ENVIRONMENT': string;
 }
 
 export declare namespace Apikeys {
