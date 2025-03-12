@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2025-03-12)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Features
+
+* **api:** api update ([#37](https://github.com/useschedo/node-typescript-sdk/issues/37)) ([abd4bef](https://github.com/useschedo/node-typescript-sdk/commit/abd4bef13d91526efe664981bb15411a83058fc2))
+
+
+### Chores
+
+* update SDK settings ([#38](https://github.com/useschedo/node-typescript-sdk/issues/38)) ([fa4fcb6](https://github.com/useschedo/node-typescript-sdk/commit/fa4fcb689fe006cf18a200bd8f27755c5621ce9e))
+
 ## 0.1.0-alpha.11 (2025-03-12)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
