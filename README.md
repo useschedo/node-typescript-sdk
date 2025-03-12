@@ -27,7 +27,7 @@ const client = new Schedo({
 });
 
 async function main() {
-  const apiKey = await client.apikeys.create({ 'X-API-ENVIRONMENT': 'X-API-ENVIRONMENT' });
+  const apiKey = await client.apikeys.create({ name: 'First ApiKey' });
 
   console.log(apiKey.id);
 }
@@ -48,7 +48,7 @@ const client = new Schedo({
 });
 
 async function main() {
-  const params: Schedo.ApikeyCreateParams = { 'X-API-ENVIRONMENT': 'X-API-ENVIRONMENT' };
+  const params: Schedo.ApikeyCreateParams = { name: 'First ApiKey' };
   const apiKey: Schedo.APIKey = await client.apikeys.create(params);
 }
 
@@ -66,17 +66,15 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const apiKey = await client.apikeys
-    .create({ 'X-API-ENVIRONMENT': 'X-API-ENVIRONMENT' })
-    .catch(async (err) => {
-      if (err instanceof Schedo.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
+  const apiKey = await client.apikeys.create({ name: 'First ApiKey' }).catch(async (err) => {
+    if (err instanceof Schedo.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 }
 
 main();
@@ -111,7 +109,7 @@ const client = new Schedo({
 });
 
 // Or, configure per-request:
-await client.apikeys.create({ 'X-API-ENVIRONMENT': 'X-API-ENVIRONMENT' }, {
+await client.apikeys.create({ name: 'First ApiKey' }, {
   maxRetries: 5,
 });
 ```
@@ -128,7 +126,7 @@ const client = new Schedo({
 });
 
 // Override per-request:
-await client.apikeys.create({ 'X-API-ENVIRONMENT': 'X-API-ENVIRONMENT' }, {
+await client.apikeys.create({ name: 'First ApiKey' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -151,13 +149,11 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Schedo();
 
-const response = await client.apikeys.create({ 'X-API-ENVIRONMENT': 'X-API-ENVIRONMENT' }).asResponse();
+const response = await client.apikeys.create({ name: 'First ApiKey' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: apiKey, response: raw } = await client.apikeys
-  .create({ 'X-API-ENVIRONMENT': 'X-API-ENVIRONMENT' })
-  .withResponse();
+const { data: apiKey, response: raw } = await client.apikeys.create({ name: 'First ApiKey' }).withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(apiKey.id);
 ```
