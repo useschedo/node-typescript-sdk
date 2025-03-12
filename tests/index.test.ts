@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from '@useschedo/node-sdk/api-promise';
+import { APIPromise } from 'Schedo/api-promise';
 
 import util from 'node:util';
-import Schedo from '@useschedo/node-sdk';
-import { APIUserAbortError } from '@useschedo/node-sdk';
+import Schedo from 'Schedo';
+import { APIUserAbortError } from 'Schedo';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
@@ -302,13 +302,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['SCHEDO_BASE_URL'] = ''; // empty
       const client = new Schedo({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('//api.schedo.dev//api.schedo.dev/api');
+      expect(client.baseURL).toEqual('https://api.schedo.dev');
     });
 
     test('blank env variable', () => {
       process.env['SCHEDO_BASE_URL'] = '  '; // blank
       const client = new Schedo({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('//api.schedo.dev//api.schedo.dev/api');
+      expect(client.baseURL).toEqual('https://api.schedo.dev');
     });
   });
 

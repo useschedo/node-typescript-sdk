@@ -178,7 +178,7 @@ export class Schedo {
    * API Client for interfacing with the Schedo API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['SCHEDO_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['SCHEDO_BASE_URL'] ?? //api.schedo.dev//api.schedo.dev/api] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['SCHEDO_BASE_URL'] ?? https://api.schedo.dev] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -200,7 +200,7 @@ export class Schedo {
     const options: ClientOptions = {
       apiKey,
       ...opts,
-      baseURL: baseURL || `//api.schedo.dev//api.schedo.dev/api`,
+      baseURL: baseURL || `https://api.schedo.dev`,
     };
 
     this.baseURL = options.baseURL!;
