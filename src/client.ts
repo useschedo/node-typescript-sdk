@@ -33,6 +33,7 @@ import {
   EnvironmentListResponse,
   Environments,
 } from './resources/environments';
+import { Jobs } from './resources/jobs';
 import { Org, OrgEdges, OrgResource } from './resources/org';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
@@ -733,10 +734,12 @@ export class Schedo {
 
   apikeys: API.Apikeys = new API.Apikeys(this);
   environments: API.Environments = new API.Environments(this);
+  jobs: API.Jobs = new API.Jobs(this);
   org: API.OrgResource = new API.OrgResource(this);
 }
 Schedo.Apikeys = Apikeys;
 Schedo.Environments = Environments;
+Schedo.Jobs = Jobs;
 Schedo.OrgResource = OrgResource;
 export declare namespace Schedo {
   export type RequestOptions = Opts.RequestOptions;
@@ -757,6 +760,8 @@ export declare namespace Schedo {
     type EnvironmentListResponse as EnvironmentListResponse,
     type EnvironmentCreatedParams as EnvironmentCreatedParams,
   };
+
+  export { Jobs as Jobs };
 
   export { OrgResource as OrgResource, type Org as Org, type OrgEdges as OrgEdges };
 }
