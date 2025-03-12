@@ -1,6 +1,6 @@
 {
-  "name": "Schedo",
-  "version": "0.1.0-alpha.10",
+  "name": "@useschedo/node-sdk",
+  "version": "0.1.0-alpha.11",
   "description": "The official TypeScript library for the Schedo API",
   "author": "Schedo <dev-feedback@Schedo.com>",
   "types": "dist/index.d.ts",
@@ -50,8 +50,8 @@
     "synckit": "0.8.8"
   },
   "imports": {
-    "Schedo": ".",
-    "Schedo/*": "./src/*"
+    "@useschedo/node-sdk": ".",
+    "@useschedo/node-sdk/*": "./src/*"
   },
   "exports": {
     ".": {
