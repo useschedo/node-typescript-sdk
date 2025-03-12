@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Schedo } from '@useschedo/node-sdk';
+import { Schedo } from 'Schedo';
 
 const { stringifyQuery } = Schedo.prototype as any;
 
