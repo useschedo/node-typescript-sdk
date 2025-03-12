@@ -55,12 +55,12 @@ $ cd node-typescript-sdk
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link Schedo
+$ yarn link @useschedo/node-sdk
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global Schedo
+$ pnpm link -—global @useschedo/node-sdk
 ```
 
 ## Running tests
