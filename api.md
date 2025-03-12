@@ -32,7 +32,6 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/jobs.ts">Job</a></code>
-- <code><a href="./src/resources/jobs.ts">JobEdges</a></code>
 
 Methods:
 

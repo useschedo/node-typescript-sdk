@@ -40,12 +40,6 @@ export interface Job {
   cron_expression?: string;
 
   /**
-   * Edges holds the relations/edges for other nodes in the graph. The values are
-   * being populated by the JobQuery when eager-loading is set.
-   */
-  edges?: JobEdges;
-
-  /**
    * ID of the user who owns this job
    */
   environment_id?: number;
@@ -96,13 +90,6 @@ export interface Job {
   updated_at?: string;
 }
 
-export interface JobEdges {
-  /**
-   * Job execution history
-   */
-  executions?: Array<unknown>;
-}
-
 export interface JobListParams {
   /**
    * 1
@@ -111,5 +98,5 @@ export interface JobListParams {
 }
 
 export declare namespace Jobs {
-  export { type Job as Job, type JobEdges as JobEdges, type JobListParams as JobListParams };
+  export { type Job as Job, type JobListParams as JobListParams };
 }
