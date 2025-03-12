@@ -13,7 +13,7 @@ export class Jobs extends APIResource {
     const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
     return this._client.get('/jobs', {
       ...options,
-      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment }, options?.headers]),
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
     });
   }
 }
@@ -94,7 +94,7 @@ export interface JobListParams {
   /**
    * 1
    */
-  'X-API-ENVIRONMENT': string;
+  'X-API-ENVIRONMENT': number;
 }
 
 export declare namespace Jobs {
