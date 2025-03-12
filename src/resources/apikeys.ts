@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
+import * as JobsAPI from './jobs';
 import { APIPromise } from '../api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
@@ -8,21 +9,21 @@ import { path } from '../internal/utils/path';
 
 export class Apikeys extends APIResource {
   /**
-   * List all jobs
+   * Generates a new API Key to access Schedo.dev API
    */
-  create(params: ApikeyCreateParams, options?: RequestOptions): APIPromise<APIKey> {
-    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
-    return this._client.post('/apikeys', {
-      ...options,
-      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment }, options?.headers]),
-    });
+  create(body: ApikeyCreateParams, options?: RequestOptions): APIPromise<APIKey> {
+    return this._client.post('/apikeys', { body, ...options });
   }
 
   /**
-   * Returns a list of API Keys for the organization
+   * List all jobs
    */
-  list(options?: RequestOptions): APIPromise<ApikeyListResponse> {
-    return this._client.get('/apikeys', options);
+  list(params: ApikeyListParams, options?: RequestOptions): APIPromise<JobsAPI.Job> {
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.get('/apikeys', {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment }, options?.headers]),
+    });
   }
 
   /**
@@ -83,11 +84,13 @@ export interface APIKey {
 
 export type APIKeyEdges = unknown;
 
-export type ApikeyListResponse = Array<Array<APIKey>>;
-
 export type ApikeyRevokeResponse = Array<Array<APIKey>>;
 
 export interface ApikeyCreateParams {
+  name: string;
+}
+
+export interface ApikeyListParams {
   /**
    * 1
    */
@@ -98,8 +101,8 @@ export declare namespace Apikeys {
   export {
     type APIKey as APIKey,
     type APIKeyEdges as APIKeyEdges,
-    type ApikeyListResponse as ApikeyListResponse,
     type ApikeyRevokeResponse as ApikeyRevokeResponse,
     type ApikeyCreateParams as ApikeyCreateParams,
+    type ApikeyListParams as ApikeyListParams,
   };
 }

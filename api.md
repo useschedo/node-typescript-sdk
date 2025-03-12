@@ -4,13 +4,12 @@ Types:
 
 - <code><a href="./src/resources/apikeys.ts">APIKey</a></code>
 - <code><a href="./src/resources/apikeys.ts">APIKeyEdges</a></code>
-- <code><a href="./src/resources/apikeys.ts">ApikeyListResponse</a></code>
 - <code><a href="./src/resources/apikeys.ts">ApikeyRevokeResponse</a></code>
 
 Methods:
 
 - <code title="post /apikeys">client.apikeys.<a href="./src/resources/apikeys.ts">create</a>({ ...params }) -> APIKey</code>
-- <code title="get /apikeys">client.apikeys.<a href="./src/resources/apikeys.ts">list</a>() -> ApikeyListResponse</code>
+- <code title="get /apikeys">client.apikeys.<a href="./src/resources/apikeys.ts">list</a>({ ...params }) -> Job</code>
 - <code title="delete /apikeys/revoke/{id}">client.apikeys.<a href="./src/resources/apikeys.ts">revoke</a>(id) -> ApikeyRevokeResponse</code>
 
 # Environments
@@ -28,6 +27,11 @@ Methods:
 - <code title="post /org/environments">client.environments.<a href="./src/resources/environments.ts">created</a>({ ...params }) -> Environment</code>
 
 # Jobs
+
+Types:
+
+- <code><a href="./src/resources/jobs.ts">Job</a></code>
+- <code><a href="./src/resources/jobs.ts">JobEdges</a></code>
 
 # Org
 

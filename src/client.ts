@@ -22,7 +22,7 @@ import {
   APIKey,
   APIKeyEdges,
   ApikeyCreateParams,
-  ApikeyListResponse,
+  ApikeyListParams,
   ApikeyRevokeResponse,
   Apikeys,
 } from './resources/apikeys';
@@ -33,7 +33,7 @@ import {
   EnvironmentListResponse,
   Environments,
 } from './resources/environments';
-import { Jobs } from './resources/jobs';
+import { Job, JobEdges, Jobs } from './resources/jobs';
 import { Org, OrgEdges, OrgResource } from './resources/org';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
@@ -748,9 +748,9 @@ export declare namespace Schedo {
     Apikeys as Apikeys,
     type APIKey as APIKey,
     type APIKeyEdges as APIKeyEdges,
-    type ApikeyListResponse as ApikeyListResponse,
     type ApikeyRevokeResponse as ApikeyRevokeResponse,
     type ApikeyCreateParams as ApikeyCreateParams,
+    type ApikeyListParams as ApikeyListParams,
   };
 
   export {
@@ -761,7 +761,7 @@ export declare namespace Schedo {
     type EnvironmentCreatedParams as EnvironmentCreatedParams,
   };
 
-  export { Jobs as Jobs };
+  export { Jobs as Jobs, type Job as Job, type JobEdges as JobEdges };
 
   export { OrgResource as OrgResource, type Org as Org, type OrgEdges as OrgEdges };
 }
