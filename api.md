@@ -27,6 +27,8 @@ Methods:
 - <code title="delete /org/environments/{id}">client.environments.<a href="./src/resources/environments.ts">delete</a>(id) -> Environment</code>
 - <code title="post /org/environments">client.environments.<a href="./src/resources/environments.ts">created</a>({ ...params }) -> Environment</code>
 
+# Jobs
+
 # Org
 
 Types:

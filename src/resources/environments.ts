@@ -47,11 +47,6 @@ export interface Environment {
   edges?: EnvironmentEdges;
 
   /**
-   * Key holds the value of the "key" field.
-   */
-  key?: string;
-
-  /**
    * Name holds the value of the "name" field.
    */
   name?: string;
