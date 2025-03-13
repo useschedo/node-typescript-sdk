@@ -25,7 +25,7 @@ export default tseslint.config(
         {
           patterns: [
             {
-              regex: '^@useschedo/node-sdk(/.*)?',
+              regex: '^Schedo(/.*)?',
               message: 'Use a relative import, not a package import.',
             },
           ],
