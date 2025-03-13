@@ -9,8 +9,8 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@useschedo/node-sdk/*": ["src/*"],
-      "@useschedo/node-sdk": ["src/index.ts"]
+      "Schedo/*": ["src/*"],
+      "Schedo": ["src/index.ts"]
     },
     "noEmit": true,
 
