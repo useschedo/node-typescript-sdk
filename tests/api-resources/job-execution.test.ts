@@ -7,10 +7,10 @@ const client = new Schedo({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource jobs', () => {
+describe('resource jobExecution', () => {
   // skipped: tests are disabled for the time being
-  test.skip('list: only required params', async () => {
-    const responsePromise = client.jobs.list({ 'X-API-ENVIRONMENT': 0 });
+  test.skip('complete', async () => {
+    const responsePromise = client.jobExecution.complete(0);
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,13 +21,8 @@ describe('resource jobs', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('list: required and optional params', async () => {
-    const response = await client.jobs.list({ 'X-API-ENVIRONMENT': 0 });
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('define: only required params', async () => {
-    const responsePromise = client.jobs.define({ name: 'Name of your job', schedule: '0 0 * * *' });
+  test.skip('poll', async () => {
+    const responsePromise = client.jobExecution.poll();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -35,16 +30,5 @@ describe('resource jobs', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('define: required and optional params', async () => {
-    const response = await client.jobs.define({
-      name: 'Name of your job',
-      schedule: '0 0 * * *',
-      max_retries: 0,
-      metadata: { foo: 'bar' },
-      timeout: 'timeout',
-    });
   });
 });
