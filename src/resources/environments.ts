@@ -8,6 +8,13 @@ import { path } from '../internal/utils/path';
 
 export class Environments extends APIResource {
   /**
+   * Creates a new org environment
+   */
+  create(body: EnvironmentCreateParams, options?: RequestOptions): APIPromise<Environment> {
+    return this._client.post('/org/environments', { body, ...options });
+  }
+
+  /**
    * Retrieves a list of environments for the current org
    */
   list(options?: RequestOptions): APIPromise<EnvironmentListResponse> {
@@ -19,13 +26,6 @@ export class Environments extends APIResource {
    */
   delete(id: number, options?: RequestOptions): APIPromise<Environment> {
     return this._client.delete(path`/org/environments/${id}`, options);
-  }
-
-  /**
-   * Creates a new org environment
-   */
-  created(body: EnvironmentCreatedParams, options?: RequestOptions): APIPromise<Environment> {
-    return this._client.post('/org/environments', { body, ...options });
   }
 }
 
@@ -66,7 +66,7 @@ export interface EnvironmentEdges {
 
 export type EnvironmentListResponse = Array<Environment>;
 
-export interface EnvironmentCreatedParams {
+export interface EnvironmentCreateParams {
   name: string;
 }
 
@@ -75,6 +75,6 @@ export declare namespace Environments {
     type Environment as Environment,
     type EnvironmentEdges as EnvironmentEdges,
     type EnvironmentListResponse as EnvironmentListResponse,
-    type EnvironmentCreatedParams as EnvironmentCreatedParams,
+    type EnvironmentCreateParams as EnvironmentCreateParams,
   };
 }

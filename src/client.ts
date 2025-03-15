@@ -28,12 +28,12 @@ import {
 } from './resources/apikeys';
 import {
   Environment,
-  EnvironmentCreatedParams,
+  EnvironmentCreateParams,
   EnvironmentEdges,
   EnvironmentListResponse,
   Environments,
 } from './resources/environments';
-import { JobExecution, JobExecutionResource } from './resources/job-execution';
+import { JobExecution, JobExecutionPollResponse, JobExecutionResource } from './resources/job-execution';
 import { Job, JobDefineParams, JobListParams, Jobs } from './resources/jobs';
 import { Org, OrgEdges, OrgResource } from './resources/org';
 import { readEnv } from './internal/utils/env';
@@ -761,7 +761,7 @@ export declare namespace Schedo {
     type Environment as Environment,
     type EnvironmentEdges as EnvironmentEdges,
     type EnvironmentListResponse as EnvironmentListResponse,
-    type EnvironmentCreatedParams as EnvironmentCreatedParams,
+    type EnvironmentCreateParams as EnvironmentCreateParams,
   };
 
   export {
@@ -771,7 +771,11 @@ export declare namespace Schedo {
     type JobDefineParams as JobDefineParams,
   };
 
-  export { JobExecutionResource as JobExecutionResource, type JobExecution as JobExecution };
+  export {
+    JobExecutionResource as JobExecutionResource,
+    type JobExecution as JobExecution,
+    type JobExecutionPollResponse as JobExecutionPollResponse,
+  };
 
   export { OrgResource as OrgResource, type Org as Org, type OrgEdges as OrgEdges };
 }

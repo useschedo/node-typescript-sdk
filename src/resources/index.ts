@@ -13,8 +13,8 @@ export {
   type Environment,
   type EnvironmentEdges,
   type EnvironmentListResponse,
-  type EnvironmentCreatedParams,
+  type EnvironmentCreateParams,
 } from './environments';
-export { JobExecutionResource, type JobExecution } from './job-execution';
+export { JobExecutionResource, type JobExecution, type JobExecutionPollResponse } from './job-execution';
 export { Jobs, type Job, type JobListParams, type JobDefineParams } from './jobs';
 export { OrgResource, type Org, type OrgEdges } from './org';

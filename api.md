@@ -23,9 +23,9 @@ Types:
 
 Methods:
 
+- <code title="post /org/environments">client.environments.<a href="./src/resources/environments.ts">create</a>({ ...params }) -> Environment</code>
 - <code title="get /org/environments">client.environments.<a href="./src/resources/environments.ts">list</a>() -> EnvironmentListResponse</code>
 - <code title="delete /org/environments/{id}">client.environments.<a href="./src/resources/environments.ts">delete</a>(id) -> Environment</code>
-- <code title="post /org/environments">client.environments.<a href="./src/resources/environments.ts">created</a>({ ...params }) -> Environment</code>
 
 # Jobs
 
@@ -36,18 +36,19 @@ Types:
 Methods:
 
 - <code title="get /jobs">client.jobs.<a href="./src/resources/jobs.ts">list</a>({ ...params }) -> Job</code>
-- <code title="post /jobs/definition">client.jobs.<a href="./src/resources/jobs.ts">define</a>({ ...params }) -> JobExecution</code>
+- <code title="post /jobs/definition">client.jobs.<a href="./src/resources/jobs.ts">define</a>({ ...params }) -> Job</code>
 
 # JobExecution
 
 Types:
 
 - <code><a href="./src/resources/job-execution.ts">JobExecution</a></code>
+- <code><a href="./src/resources/job-execution.ts">JobExecutionPollResponse</a></code>
 
 Methods:
 
 - <code title="post /jobs/executions/complete/{executionId}">client.jobExecution.<a href="./src/resources/job-execution.ts">complete</a>(executionID) -> JobExecution</code>
-- <code title="get /jobs/executions">client.jobExecution.<a href="./src/resources/job-execution.ts">poll</a>() -> JobExecution</code>
+- <code title="get /jobs/executions">client.jobExecution.<a href="./src/resources/job-execution.ts">poll</a>() -> JobExecutionPollResponse</code>
 
 # Org
 
