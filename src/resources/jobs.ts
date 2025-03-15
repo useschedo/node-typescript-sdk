@@ -4,6 +4,7 @@ import { APIResource } from '../resource';
 import { APIPromise } from '../api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Jobs extends APIResource {
   /**
@@ -15,6 +16,20 @@ export class Jobs extends APIResource {
       ...options,
       headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
     });
+  }
+
+  /**
+   * Marks pending job execution as complete
+   */
+  complete(executionID: number, options?: RequestOptions): APIPromise<JobExecution> {
+    return this._client.post(path`/jobs/executions/complete/${executionID}`, options);
+  }
+
+  /**
+   * Returns list of jobs that must be executed
+   */
+  executions(options?: RequestOptions): APIPromise<JobExecution> {
+    return this._client.get('/jobs/executions', options);
   }
 }
 
@@ -43,6 +58,11 @@ export interface Job {
    * ID of the user who owns this job
    */
   environment_id?: number;
+
+  /**
+   * Key holds the value of the "key" field.
+   */
+  key?: string;
 
   /**
    * Time when the job was last executed
@@ -90,6 +110,48 @@ export interface Job {
   updated_at?: string;
 }
 
+export interface JobExecution {
+  /**
+   * ID of the ent.
+   */
+  id?: number;
+
+  /**
+   * Time when execution completed
+   */
+  end_time?: string;
+
+  /**
+   * Error message if execution failed
+   */
+  error?: string;
+
+  /**
+   * Exit code of the executed command
+   */
+  exit_code?: number;
+
+  /**
+   * JobCode holds the value of the "job_code" field.
+   */
+  job_code?: string;
+
+  /**
+   * Output of the executed command
+   */
+  output?: string;
+
+  /**
+   * Time when execution started
+   */
+  start_time?: string;
+
+  /**
+   * Execution status (running, completed, failed)
+   */
+  status?: string;
+}
+
 export interface JobListParams {
   /**
    * 1
@@ -98,5 +160,5 @@ export interface JobListParams {
 }
 
 export declare namespace Jobs {
-  export { type Job as Job, type JobListParams as JobListParams };
+  export { type Job as Job, type JobExecution as JobExecution, type JobListParams as JobListParams };
 }
