@@ -2,7 +2,7 @@
   "name": "@useschedo/node-sdk",
   "version": "0.1.0-alpha.16",
   "description": "The official TypeScript library for the Schedo API",
-  "author": "Schedo <dev-feedback@Schedo.com>",
+  "author": "Schedo <dev-feedback@schedo.dev>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",

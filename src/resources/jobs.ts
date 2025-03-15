@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
+import * as JobExecutionAPI from './job-execution';
 import { APIPromise } from '../api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
-import { path } from '../internal/utils/path';
 
 export class Jobs extends APIResource {
   /**
@@ -19,24 +19,10 @@ export class Jobs extends APIResource {
   }
 
   /**
-   * Marks pending job execution as complete
-   */
-  complete(executionID: number, options?: RequestOptions): APIPromise<JobExecution> {
-    return this._client.post(path`/jobs/executions/complete/${executionID}`, options);
-  }
-
-  /**
    * Tries to create a new Job Definition
    */
-  define(body: JobDefineParams, options?: RequestOptions): APIPromise<JobExecution> {
+  define(body: JobDefineParams, options?: RequestOptions): APIPromise<JobExecutionAPI.JobExecution> {
     return this._client.post('/jobs/definition', { body, ...options });
-  }
-
-  /**
-   * Returns list of jobs that must be executed
-   */
-  executions(options?: RequestOptions): APIPromise<JobExecution> {
-    return this._client.get('/jobs/executions', options);
   }
 }
 
@@ -117,48 +103,6 @@ export interface Job {
   updated_at?: string;
 }
 
-export interface JobExecution {
-  /**
-   * ID of the ent.
-   */
-  id?: number;
-
-  /**
-   * Time when execution completed
-   */
-  end_time?: string;
-
-  /**
-   * Error message if execution failed
-   */
-  error?: string;
-
-  /**
-   * Exit code of the executed command
-   */
-  exit_code?: number;
-
-  /**
-   * JobCode holds the value of the "job_code" field.
-   */
-  job_code?: string;
-
-  /**
-   * Output of the executed command
-   */
-  output?: string;
-
-  /**
-   * Time when execution started
-   */
-  start_time?: string;
-
-  /**
-   * Execution status (running, completed, failed)
-   */
-  status?: string;
-}
-
 export interface JobListParams {
   /**
    * 1
@@ -179,10 +123,5 @@ export interface JobDefineParams {
 }
 
 export declare namespace Jobs {
-  export {
-    type Job as Job,
-    type JobExecution as JobExecution,
-    type JobListParams as JobListParams,
-    type JobDefineParams as JobDefineParams,
-  };
+  export { type Job as Job, type JobListParams as JobListParams, type JobDefineParams as JobDefineParams };
 }

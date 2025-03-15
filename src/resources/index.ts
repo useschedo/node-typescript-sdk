@@ -15,5 +15,6 @@ export {
   type EnvironmentListResponse,
   type EnvironmentCreatedParams,
 } from './environments';
-export { Jobs, type Job, type JobExecution, type JobListParams, type JobDefineParams } from './jobs';
+export { JobExecutionResource, type JobExecution } from './job-execution';
+export { Jobs, type Job, type JobListParams, type JobDefineParams } from './jobs';
 export { OrgResource, type Org, type OrgEdges } from './org';

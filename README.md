@@ -4,7 +4,7 @@
 
 This library provides convenient access to the Schedo REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found on [docs.schedo.com](https://docs.Schedo.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.schedo.dev](https://docs.schedo.dev). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainless.com/).
 
