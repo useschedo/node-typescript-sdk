@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2025-03-15)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Features
+
+* **api:** api update ([#58](https://github.com/useschedo/node-typescript-sdk/issues/58)) ([d20fcce](https://github.com/useschedo/node-typescript-sdk/commit/d20fcce260c5690f6efd01196f2ffd9fc89f60eb))
+
 ## 0.1.0-alpha.17 (2025-03-15)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
