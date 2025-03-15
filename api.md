@@ -38,6 +38,7 @@ Methods:
 
 - <code title="get /jobs">client.jobs.<a href="./src/resources/jobs.ts">list</a>({ ...params }) -> Job</code>
 - <code title="post /jobs/executions/complete/{executionId}">client.jobs.<a href="./src/resources/jobs.ts">complete</a>(executionID) -> JobExecution</code>
+- <code title="post /jobs/definition">client.jobs.<a href="./src/resources/jobs.ts">define</a>({ ...params }) -> JobExecution</code>
 - <code title="get /jobs/executions">client.jobs.<a href="./src/resources/jobs.ts">executions</a>() -> JobExecution</code>
 
 # Org
