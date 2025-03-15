@@ -35,6 +35,11 @@ export interface Org {
    * Organization name
    */
   name?: string;
+
+  /**
+   * SingleUserOrg holds the value of the "single_user_org" field.
+   */
+  single_user_org?: boolean;
 }
 
 export interface OrgEdges {
