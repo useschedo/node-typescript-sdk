@@ -26,6 +26,13 @@ export class Jobs extends APIResource {
   }
 
   /**
+   * Tries to create a new Job Definition
+   */
+  define(body: JobDefineParams, options?: RequestOptions): APIPromise<JobExecution> {
+    return this._client.post('/jobs/definition', { body, ...options });
+  }
+
+  /**
    * Returns list of jobs that must be executed
    */
   executions(options?: RequestOptions): APIPromise<JobExecution> {
@@ -159,6 +166,23 @@ export interface JobListParams {
   'X-API-ENVIRONMENT': number;
 }
 
+export interface JobDefineParams {
+  name: string;
+
+  schedule: string;
+
+  max_retries?: number;
+
+  metadata?: Record<string, unknown>;
+
+  timeout?: string;
+}
+
 export declare namespace Jobs {
-  export { type Job as Job, type JobExecution as JobExecution, type JobListParams as JobListParams };
+  export {
+    type Job as Job,
+    type JobExecution as JobExecution,
+    type JobListParams as JobListParams,
+    type JobDefineParams as JobDefineParams,
+  };
 }
