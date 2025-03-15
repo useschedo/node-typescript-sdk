@@ -16,7 +16,7 @@ export class JobExecutionResource extends APIResource {
   /**
    * Returns list of jobs that must be executed
    */
-  poll(options?: RequestOptions): APIPromise<JobExecution> {
+  poll(options?: RequestOptions): APIPromise<JobExecutionPollResponse> {
     return this._client.get('/jobs/executions', options);
   }
 }
@@ -63,6 +63,8 @@ export interface JobExecution {
   status?: string;
 }
 
+export type JobExecutionPollResponse = Array<JobExecution>;
+
 export declare namespace JobExecutionResource {
-  export { type JobExecution as JobExecution };
+  export { type JobExecution as JobExecution, type JobExecutionPollResponse as JobExecutionPollResponse };
 }

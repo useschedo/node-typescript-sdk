@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
-import * as JobExecutionAPI from './job-execution';
 import { APIPromise } from '../api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
@@ -21,7 +20,7 @@ export class Jobs extends APIResource {
   /**
    * Tries to create a new Job Definition
    */
-  define(body: JobDefineParams, options?: RequestOptions): APIPromise<JobExecutionAPI.JobExecution> {
+  define(body: JobDefineParams, options?: RequestOptions): APIPromise<Job> {
     return this._client.post('/jobs/definition', { body, ...options });
   }
 }
