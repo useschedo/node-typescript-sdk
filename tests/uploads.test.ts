@@ -1,6 +1,6 @@
 import fs from 'fs';
-import type { ResponseLike } from 'Schedo/internal/to-file';
-import { toFile } from 'Schedo/uploads';
+import type { ResponseLike } from '@useschedo/node-sdk/internal/to-file';
+import { toFile } from '@useschedo/node-sdk/uploads';
 import { File } from 'node:buffer';
 
 class MyClass {
@@ -97,7 +97,7 @@ describe('missing File error message', () => {
   });
 
   test('is thrown', async () => {
-    const uploads = await import('Schedo/uploads');
+    const uploads = await import('@useschedo/node-sdk/uploads');
     await expect(
       uploads.toFile(mockResponse({ url: 'https://example.com/my/audio.mp3' })),
     ).rejects.toMatchInlineSnapshot(
