@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2025-03-15)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Bug Fixes
+
+* **internal:** add mts file + crypto shim types ([#46](https://github.com/useschedo/node-typescript-sdk/issues/46)) ([8cef6d9](https://github.com/useschedo/node-typescript-sdk/commit/8cef6d9b1b5d086c80eab900bbbde3f72590649d))
+
+
+### Chores
+
+* **internal:** remove extra empty newlines ([#44](https://github.com/useschedo/node-typescript-sdk/issues/44)) ([bb5ee68](https://github.com/useschedo/node-typescript-sdk/commit/bb5ee682f7801dec7efba992d862fac1d82a9ecf))
+
 ## 0.1.0-alpha.13 (2025-03-13)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
