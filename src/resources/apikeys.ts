@@ -83,6 +83,8 @@ export type ApikeyListResponse = Array<Array<APIKey>>;
 export type ApikeyRevokeResponse = Array<Array<APIKey>>;
 
 export interface ApikeyCreateParams {
+  environment_id: number;
+
   name: string;
 }
 
