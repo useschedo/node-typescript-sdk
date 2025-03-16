@@ -9,6 +9,26 @@ const client = new Schedo({
 
 describe('resource jobExecution', () => {
   // skipped: tests are disabled for the time being
+  test.skip('list', async () => {
+    const responsePromise = client.jobExecution.list(0);
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.jobExecution.list(0, { cursor: 0, limit: 0 }, { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Schedo.NotFoundError);
+  });
+
+  // skipped: tests are disabled for the time being
   test.skip('complete', async () => {
     const responsePromise = client.jobExecution.complete(0);
     const rawResponse = await responsePromise.asResponse();
