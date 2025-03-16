@@ -33,7 +33,13 @@ import {
   EnvironmentListResponse,
   Environments,
 } from './resources/environments';
-import { JobExecution, JobExecutionPollResponse, JobExecutionResource } from './resources/job-execution';
+import {
+  JobExecution,
+  JobExecutionListParams,
+  JobExecutionListResponse,
+  JobExecutionPollResponse,
+  JobExecutionResource,
+} from './resources/job-execution';
 import { Job, JobDefineParams, JobListParams, Jobs } from './resources/jobs';
 import { Org, OrgEdges, OrgResource } from './resources/org';
 import { readEnv } from './internal/utils/env';
@@ -774,7 +780,9 @@ export declare namespace Schedo {
   export {
     JobExecutionResource as JobExecutionResource,
     type JobExecution as JobExecution,
+    type JobExecutionListResponse as JobExecutionListResponse,
     type JobExecutionPollResponse as JobExecutionPollResponse,
+    type JobExecutionListParams as JobExecutionListParams,
   };
 
   export { OrgResource as OrgResource, type Org as Org, type OrgEdges as OrgEdges };
