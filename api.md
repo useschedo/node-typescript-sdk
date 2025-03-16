@@ -43,10 +43,12 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/job-execution.ts">JobExecution</a></code>
+- <code><a href="./src/resources/job-execution.ts">JobExecutionListResponse</a></code>
 - <code><a href="./src/resources/job-execution.ts">JobExecutionPollResponse</a></code>
 
 Methods:
 
+- <code title="get /jobs/executions/{jobId}">client.jobExecution.<a href="./src/resources/job-execution.ts">list</a>(jobID, { ...params }) -> JobExecutionListResponse</code>
 - <code title="post /jobs/executions/complete/{executionId}">client.jobExecution.<a href="./src/resources/job-execution.ts">complete</a>(executionID) -> JobExecution</code>
 - <code title="get /jobs/executions">client.jobExecution.<a href="./src/resources/job-execution.ts">poll</a>() -> JobExecutionPollResponse</code>
 
