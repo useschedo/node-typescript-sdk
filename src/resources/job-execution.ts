@@ -7,6 +7,17 @@ import { path } from '../internal/utils/path';
 
 export class JobExecutionResource extends APIResource {
   /**
+   * Returns a list of executions for a job
+   */
+  list(
+    jobID: number,
+    query: JobExecutionListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<JobExecutionListResponse> {
+    return this._client.get(path`/jobs/executions/${jobID}`, { query, ...options });
+  }
+
+  /**
    * Marks pending job execution as complete
    */
   complete(executionID: number, options?: RequestOptions): APIPromise<JobExecution> {
@@ -63,8 +74,27 @@ export interface JobExecution {
   status?: string;
 }
 
+export type JobExecutionListResponse = Array<JobExecution>;
+
 export type JobExecutionPollResponse = Array<JobExecution>;
 
+export interface JobExecutionListParams {
+  /**
+   * 1
+   */
+  cursor?: number;
+
+  /**
+   * 1
+   */
+  limit?: number;
+}
+
 export declare namespace JobExecutionResource {
-  export { type JobExecution as JobExecution, type JobExecutionPollResponse as JobExecutionPollResponse };
+  export {
+    type JobExecution as JobExecution,
+    type JobExecutionListResponse as JobExecutionListResponse,
+    type JobExecutionPollResponse as JobExecutionPollResponse,
+    type JobExecutionListParams as JobExecutionListParams,
+  };
 }
