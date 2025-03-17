@@ -21,6 +21,7 @@ export {
   type JobExecutionListResponse,
   type JobExecutionPollResponse,
   type JobExecutionListParams,
+  type JobExecutionCompleteParams,
 } from './job-execution';
 export { Jobs, type Job, type JobListParams, type JobDefineParams } from './jobs';
 export { OrgResource, type Org, type OrgEdges } from './org';

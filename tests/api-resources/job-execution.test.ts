@@ -26,8 +26,8 @@ describe('resource jobExecution', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('complete', async () => {
-    const responsePromise = client.jobExecution.complete(0);
+  test.skip('complete: only required params', async () => {
+    const responsePromise = client.jobExecution.complete(0, { success: true });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -35,6 +35,15 @@ describe('resource jobExecution', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('complete: required and optional params', async () => {
+    const response = await client.jobExecution.complete(0, {
+      success: true,
+      error: 'Error message',
+      output: 'Output message',
+    });
   });
 
   // skipped: tests are disabled for the time being
