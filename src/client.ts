@@ -41,7 +41,7 @@ import {
   JobExecutionPollResponse,
   JobExecutionResource,
 } from './resources/job-execution';
-import { Job, JobDefineParams, JobListParams, Jobs } from './resources/jobs';
+import { Job, JobDefineParams, JobDeleteResponse, JobListParams, Jobs } from './resources/jobs';
 import { Org, OrgEdges, OrgResource } from './resources/org';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
@@ -774,6 +774,7 @@ export declare namespace Schedo {
   export {
     Jobs as Jobs,
     type Job as Job,
+    type JobDeleteResponse as JobDeleteResponse,
     type JobListParams as JobListParams,
     type JobDefineParams as JobDefineParams,
   };
