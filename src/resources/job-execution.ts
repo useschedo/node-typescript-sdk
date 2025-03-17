@@ -26,8 +26,12 @@ export class JobExecutionResource extends APIResource {
   /**
    * Marks pending job execution as complete
    */
-  complete(executionID: number, options?: RequestOptions): APIPromise<JobExecution> {
-    return this._client.post(path`/jobs/executions/complete/${executionID}`, options);
+  complete(
+    executionID: number,
+    body: JobExecutionCompleteParams,
+    options?: RequestOptions,
+  ): APIPromise<JobExecution> {
+    return this._client.post(path`/jobs/executions/complete/${executionID}`, { body, ...options });
   }
 
   /**
@@ -43,6 +47,11 @@ export interface JobExecution {
    * ID of the ent.
    */
   id?: number;
+
+  /**
+   * Duration holds the value of the "duration" field.
+   */
+  duration?: number;
 
   /**
    * Time when execution completed
@@ -68,6 +77,11 @@ export interface JobExecution {
    * Output of the executed command
    */
   output?: string;
+
+  /**
+   * Time when execution was picked up by a worker
+   */
+  pick_up_time?: string;
 
   /**
    * Time when execution started
@@ -101,11 +115,20 @@ export interface JobExecutionListParams {
   limit?: number;
 }
 
+export interface JobExecutionCompleteParams {
+  success: boolean;
+
+  error?: string;
+
+  output?: string;
+}
+
 export declare namespace JobExecutionResource {
   export {
     type JobExecution as JobExecution,
     type JobExecutionListResponse as JobExecutionListResponse,
     type JobExecutionPollResponse as JobExecutionPollResponse,
     type JobExecutionListParams as JobExecutionListParams,
+    type JobExecutionCompleteParams as JobExecutionCompleteParams,
   };
 }
