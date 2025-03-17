@@ -32,10 +32,12 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/jobs.ts">Job</a></code>
+- <code><a href="./src/resources/jobs.ts">JobDeleteResponse</a></code>
 
 Methods:
 
 - <code title="get /jobs">client.jobs.<a href="./src/resources/jobs.ts">list</a>({ ...params }) -> Job</code>
+- <code title="delete /jobs/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">delete</a>(jobID) -> string</code>
 - <code title="post /jobs/definition">client.jobs.<a href="./src/resources/jobs.ts">define</a>({ ...params }) -> Job</code>
 
 # JobExecution
