@@ -35,6 +35,7 @@ import {
 } from './resources/environments';
 import {
   JobExecution,
+  JobExecutionCompleteParams,
   JobExecutionListParams,
   JobExecutionListResponse,
   JobExecutionPollResponse,
@@ -783,6 +784,7 @@ export declare namespace Schedo {
     type JobExecutionListResponse as JobExecutionListResponse,
     type JobExecutionPollResponse as JobExecutionPollResponse,
     type JobExecutionListParams as JobExecutionListParams,
+    type JobExecutionCompleteParams as JobExecutionCompleteParams,
   };
 
   export { OrgResource as OrgResource, type Org as Org, type OrgEdges as OrgEdges };
