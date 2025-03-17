@@ -4,6 +4,7 @@ import { APIResource } from '../resource';
 import { APIPromise } from '../api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Jobs extends APIResource {
   /**
@@ -15,6 +16,15 @@ export class Jobs extends APIResource {
       ...options,
       headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
     });
+  }
+
+  /**
+   * After you delete a job, you can't recover it, but if you have services still
+   * running with that job reference, they will re-create and re-schedule a new job
+   * automatically.
+   */
+  delete(jobID: number, options?: RequestOptions): APIPromise<string> {
+    return this._client.delete(path`/jobs/${jobID}`, options);
   }
 
   /**
@@ -102,6 +112,8 @@ export interface Job {
   updated_at?: string;
 }
 
+export type JobDeleteResponse = string;
+
 export interface JobListParams {
   /**
    * 1
@@ -122,5 +134,10 @@ export interface JobDefineParams {
 }
 
 export declare namespace Jobs {
-  export { type Job as Job, type JobListParams as JobListParams, type JobDefineParams as JobDefineParams };
+  export {
+    type Job as Job,
+    type JobDeleteResponse as JobDeleteResponse,
+    type JobListParams as JobListParams,
+    type JobDefineParams as JobDefineParams,
+  };
 }
