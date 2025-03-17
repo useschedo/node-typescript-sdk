@@ -2,6 +2,7 @@
 
 import { APIResource } from '../resource';
 import { APIPromise } from '../api-promise';
+import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
@@ -11,10 +12,15 @@ export class JobExecutionResource extends APIResource {
    */
   list(
     jobID: number,
-    query: JobExecutionListParams | null | undefined = {},
+    params: JobExecutionListParams,
     options?: RequestOptions,
   ): APIPromise<JobExecutionListResponse> {
-    return this._client.get(path`/jobs/executions/${jobID}`, { query, ...options });
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment, ...query } = params;
+    return this._client.get(path`/jobs/executions/${jobID}`, {
+      query,
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
   }
 
   /**
@@ -80,12 +86,17 @@ export type JobExecutionPollResponse = Array<JobExecution>;
 
 export interface JobExecutionListParams {
   /**
-   * 1
+   * Header param: 1
+   */
+  'X-API-ENVIRONMENT': number;
+
+  /**
+   * Query param: 1
    */
   cursor?: number;
 
   /**
-   * 1
+   * Query param: 1
    */
   limit?: number;
 }
