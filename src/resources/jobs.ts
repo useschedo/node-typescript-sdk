@@ -1,12 +1,24 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
+import * as JobExecutionAPI from './job-execution';
 import { APIPromise } from '../api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
 export class Jobs extends APIResource {
+  /**
+   * Retrieve a job by its ID
+   */
+  retrieve(jobID: number, params: JobRetrieveParams, options?: RequestOptions): APIPromise<Output> {
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.get(path`/jobs/${jobID}`, {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
+  }
+
   /**
    * List all jobs
    */
@@ -112,7 +124,20 @@ export interface Job {
   updated_at?: string;
 }
 
+export interface Output {
+  job?: Job;
+
+  last_run?: JobExecutionAPI.JobExecution;
+}
+
 export type JobDeleteResponse = string;
+
+export interface JobRetrieveParams {
+  /**
+   * 1
+   */
+  'X-API-ENVIRONMENT': number;
+}
 
 export interface JobListParams {
   /**
@@ -136,7 +161,9 @@ export interface JobDefineParams {
 export declare namespace Jobs {
   export {
     type Job as Job,
+    type Output as Output,
     type JobDeleteResponse as JobDeleteResponse,
+    type JobRetrieveParams as JobRetrieveParams,
     type JobListParams as JobListParams,
     type JobDefineParams as JobDefineParams,
   };
