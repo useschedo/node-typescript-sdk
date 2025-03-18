@@ -9,6 +9,23 @@ const client = new Schedo({
 
 describe('resource jobs', () => {
   // skipped: tests are disabled for the time being
+  test.skip('retrieve: only required params', async () => {
+    const responsePromise = client.jobs.retrieve(0, { 'X-API-ENVIRONMENT': 0 });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('retrieve: required and optional params', async () => {
+    const response = await client.jobs.retrieve(0, { 'X-API-ENVIRONMENT': 0 });
+  });
+
+  // skipped: tests are disabled for the time being
   test.skip('list: only required params', async () => {
     const responsePromise = client.jobs.list({ 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
