@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.25 (2025-03-22)
+
+Full Changelog: [v0.1.0-alpha.24...v0.1.0-alpha.25](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.24...v0.1.0-alpha.25)
+
+### Features
+
+* **api:** api update ([#83](https://github.com/useschedo/node-typescript-sdk/issues/83)) ([83a2e23](https://github.com/useschedo/node-typescript-sdk/commit/83a2e2374bbe93db492c16fc6a1786d16cd4bf66))
+
+
+### Chores
+
+* **exports:** cleaner resource index imports ([#81](https://github.com/useschedo/node-typescript-sdk/issues/81)) ([06ae3cf](https://github.com/useschedo/node-typescript-sdk/commit/06ae3cf111bc4c865e9fa1668a44d750962d1637))
+* **exports:** stop using path fallbacks ([#82](https://github.com/useschedo/node-typescript-sdk/issues/82)) ([dec26f4](https://github.com/useschedo/node-typescript-sdk/commit/dec26f409a45c591ab00421d3ed463c7cc4ec2d2))
+* **internal:** minor client file refactoring ([#79](https://github.com/useschedo/node-typescript-sdk/issues/79)) ([0611da1](https://github.com/useschedo/node-typescript-sdk/commit/0611da1bf2b27393e548e2b31fa200f64889d8a4))
+
 ## 0.1.0-alpha.24 (2025-03-18)
 
 Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
