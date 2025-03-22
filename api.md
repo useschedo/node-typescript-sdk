@@ -55,6 +55,7 @@ Methods:
 - <code title="get /jobs/executions/{jobId}">client.jobExecution.<a href="./src/resources/job-execution.ts">list</a>(jobID, { ...params }) -> JobExecutionListResponse</code>
 - <code title="post /jobs/executions/complete/{executionId}">client.jobExecution.<a href="./src/resources/job-execution.ts">complete</a>(executionID, { ...params }) -> JobExecution</code>
 - <code title="get /jobs/executions">client.jobExecution.<a href="./src/resources/job-execution.ts">poll</a>() -> JobExecutionPollResponse</code>
+- <code title="get /jobs/executions/stream">client.jobExecution.<a href="./src/resources/job-execution.ts">updates</a>({ ...params }) -> void</code>
 
 # Org
 
