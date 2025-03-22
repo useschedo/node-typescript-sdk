@@ -22,6 +22,7 @@ export {
   type JobExecutionPollResponse,
   type JobExecutionListParams,
   type JobExecutionCompleteParams,
+  type JobExecutionUpdatesParams,
 } from './job-execution';
 export {
   Jobs,
