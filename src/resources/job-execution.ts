@@ -40,20 +40,6 @@ export class JobExecutionResource extends APIResource {
   poll(options?: RequestOptions): APIPromise<JobExecutionPollResponse> {
     return this._client.get('/jobs/executions', options);
   }
-
-  /**
-   * Streams job executions over websockets
-   */
-  updates(
-    query: JobExecutionUpdatesParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<void> {
-    return this._client.get('/jobs/executions/stream', {
-      query,
-      ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
-    });
-  }
 }
 
 export interface JobExecution {
@@ -137,13 +123,6 @@ export interface JobExecutionCompleteParams {
   output?: string;
 }
 
-export interface JobExecutionUpdatesParams {
-  /**
-   * List of Job Codes to stream
-   */
-  jobs?: Array<string>;
-}
-
 export declare namespace JobExecutionResource {
   export {
     type JobExecution as JobExecution,
@@ -151,6 +130,5 @@ export declare namespace JobExecutionResource {
     type JobExecutionPollResponse as JobExecutionPollResponse,
     type JobExecutionListParams as JobExecutionListParams,
     type JobExecutionCompleteParams as JobExecutionCompleteParams,
-    type JobExecutionUpdatesParams as JobExecutionUpdatesParams,
   };
 }

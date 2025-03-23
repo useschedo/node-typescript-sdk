@@ -57,24 +57,4 @@ describe('resource jobExecution', () => {
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
   });
-
-  // skipped: tests are disabled for the time being
-  test.skip('updates', async () => {
-    const responsePromise = client.jobExecution.updates();
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('updates: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.jobExecution.updates({ jobs: ['string'] }, { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Schedo.NotFoundError);
-  });
 });
