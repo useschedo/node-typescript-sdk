@@ -49,37 +49,22 @@ export class Jobs extends APIResource {
   /**
    * Temporary stops a job from running
    */
-  pause(
-    jobID: string,
-    params: JobPauseParams,
-    options?: RequestOptions,
-  ): APIPromise<JobExecutionAPI.JobExecution> {
-    const { query_jobId: jobId } = params;
-    return this._client.patch(path`/jobs/pause/${jobID}`, { query: { jobId }, ...options });
+  pause(jobID: number, options?: RequestOptions): APIPromise<JobExecutionAPI.JobExecution> {
+    return this._client.patch(path`/jobs/pause/${jobID}`, options);
   }
 
   /**
    * Resumes job execution
    */
-  resume(
-    jobID: string,
-    params: JobResumeParams,
-    options?: RequestOptions,
-  ): APIPromise<JobExecutionAPI.JobExecution> {
-    const { query_jobId: jobId } = params;
-    return this._client.patch(path`/jobs/resume/${jobID}`, { query: { jobId }, ...options });
+  resume(jobID: number, options?: RequestOptions): APIPromise<JobExecutionAPI.JobExecution> {
+    return this._client.patch(path`/jobs/resume/${jobID}`, options);
   }
 
   /**
    * Immediately triggers a job
    */
-  trigger(
-    jobID: string,
-    params: JobTriggerParams,
-    options?: RequestOptions,
-  ): APIPromise<JobExecutionAPI.JobExecution> {
-    const { query_jobId: jobId } = params;
-    return this._client.post(path`/jobs/trigger/${jobID}`, { query: { jobId }, ...options });
+  trigger(jobID: number, options?: RequestOptions): APIPromise<JobExecutionAPI.JobExecution> {
+    return this._client.post(path`/jobs/trigger/${jobID}`, options);
   }
 }
 
@@ -199,27 +184,6 @@ export interface JobDefineParams {
   timeout?: string;
 }
 
-export interface JobPauseParams {
-  /**
-   * Job ID
-   */
-  query_jobId: number;
-}
-
-export interface JobResumeParams {
-  /**
-   * Job ID
-   */
-  query_jobId: number;
-}
-
-export interface JobTriggerParams {
-  /**
-   * Job ID
-   */
-  query_jobId: number;
-}
-
 export declare namespace Jobs {
   export {
     type Job as Job,
@@ -228,8 +192,5 @@ export declare namespace Jobs {
     type JobRetrieveParams as JobRetrieveParams,
     type JobListParams as JobListParams,
     type JobDefineParams as JobDefineParams,
-    type JobPauseParams as JobPauseParams,
-    type JobResumeParams as JobResumeParams,
-    type JobTriggerParams as JobTriggerParams,
   };
 }
