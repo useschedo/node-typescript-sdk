@@ -49,6 +49,7 @@ import {
   JobDeleteResponse,
   JobListParams,
   JobPauseParams,
+  JobResumeParams,
   JobRetrieveParams,
   JobTriggerParams,
   Jobs,
@@ -748,6 +749,7 @@ export declare namespace Schedo {
     type JobListParams as JobListParams,
     type JobDefineParams as JobDefineParams,
     type JobPauseParams as JobPauseParams,
+    type JobResumeParams as JobResumeParams,
     type JobTriggerParams as JobTriggerParams,
   };
 
