@@ -45,6 +45,30 @@ export class Jobs extends APIResource {
   define(body: JobDefineParams, options?: RequestOptions): APIPromise<Job> {
     return this._client.post('/jobs/definition', { body, ...options });
   }
+
+  /**
+   * Temporary stops a job from running
+   */
+  pause(
+    jobID: string,
+    params: JobPauseParams,
+    options?: RequestOptions,
+  ): APIPromise<JobExecutionAPI.JobExecution> {
+    const { query_jobId: jobId } = params;
+    return this._client.patch(path`/jobs/pause/${jobID}`, { query: { jobId }, ...options });
+  }
+
+  /**
+   * Immediately triggers a job
+   */
+  trigger(
+    jobID: string,
+    params: JobTriggerParams,
+    options?: RequestOptions,
+  ): APIPromise<JobExecutionAPI.JobExecution> {
+    const { query_jobId: jobId } = params;
+    return this._client.post(path`/jobs/trigger/${jobID}`, { query: { jobId }, ...options });
+  }
 }
 
 export interface Job {
@@ -104,6 +128,11 @@ export interface Job {
   next_run_at?: string;
 
   /**
+   * Paused holds the value of the "paused" field.
+   */
+  paused?: boolean;
+
+  /**
    * Number of retry attempts
    */
   retry_count?: number;
@@ -158,6 +187,20 @@ export interface JobDefineParams {
   timeout?: string;
 }
 
+export interface JobPauseParams {
+  /**
+   * Job ID
+   */
+  query_jobId: number;
+}
+
+export interface JobTriggerParams {
+  /**
+   * Job ID
+   */
+  query_jobId: number;
+}
+
 export declare namespace Jobs {
   export {
     type Job as Job,
@@ -166,5 +209,7 @@ export declare namespace Jobs {
     type JobRetrieveParams as JobRetrieveParams,
     type JobListParams as JobListParams,
     type JobDefineParams as JobDefineParams,
+    type JobPauseParams as JobPauseParams,
+    type JobTriggerParams as JobTriggerParams,
   };
 }
