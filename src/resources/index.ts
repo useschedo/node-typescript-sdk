@@ -32,6 +32,7 @@ export {
   type JobListParams,
   type JobDefineParams,
   type JobPauseParams,
+  type JobResumeParams,
   type JobTriggerParams,
 } from './jobs';
 export { OrgResource, type Org, type OrgEdges } from './org';
