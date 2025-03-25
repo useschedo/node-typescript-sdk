@@ -89,7 +89,7 @@ export interface JobExecution {
   start_time?: string;
 
   /**
-   * Execution status (running, completed, failed)
+   * Execution status (running, completed, failed, skipped, expired)
    */
   status?: string;
 }
