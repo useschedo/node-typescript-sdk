@@ -35,8 +35,12 @@ export class Jobs extends APIResource {
    * running with that job reference, they will re-create and re-schedule a new job
    * automatically.
    */
-  delete(jobID: number, options?: RequestOptions): APIPromise<string> {
-    return this._client.delete(path`/jobs/${jobID}`, options);
+  delete(jobID: number, params: JobDeleteParams, options?: RequestOptions): APIPromise<string> {
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.delete(path`/jobs/${jobID}`, {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
   }
 
   /**
@@ -50,36 +54,45 @@ export class Jobs extends APIResource {
    * Temporary stops a job from running
    */
   pause(
-    jobID: string,
+    jobID: number,
     params: JobPauseParams,
     options?: RequestOptions,
   ): APIPromise<JobExecutionAPI.JobExecution> {
-    const { query_jobId: jobId } = params;
-    return this._client.patch(path`/jobs/pause/${jobID}`, { query: { jobId }, ...options });
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.patch(path`/jobs/pause/${jobID}`, {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
   }
 
   /**
    * Resumes job execution
    */
   resume(
-    jobID: string,
+    jobID: number,
     params: JobResumeParams,
     options?: RequestOptions,
   ): APIPromise<JobExecutionAPI.JobExecution> {
-    const { query_jobId: jobId } = params;
-    return this._client.patch(path`/jobs/resume/${jobID}`, { query: { jobId }, ...options });
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.patch(path`/jobs/resume/${jobID}`, {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
   }
 
   /**
    * Immediately triggers a job
    */
   trigger(
-    jobID: string,
+    jobID: number,
     params: JobTriggerParams,
     options?: RequestOptions,
   ): APIPromise<JobExecutionAPI.JobExecution> {
-    const { query_jobId: jobId } = params;
-    return this._client.post(path`/jobs/trigger/${jobID}`, { query: { jobId }, ...options });
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.post(path`/jobs/trigger/${jobID}`, {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
   }
 }
 
@@ -88,6 +101,11 @@ export interface Job {
    * ID of the ent.
    */
   id?: number;
+
+  /**
+   * Blocking holds the value of the "blocking" field.
+   */
+  blocking?: boolean;
 
   /**
    * Command to execute
@@ -187,10 +205,19 @@ export interface JobListParams {
   'X-API-ENVIRONMENT': number;
 }
 
+export interface JobDeleteParams {
+  /**
+   * 1
+   */
+  'X-API-ENVIRONMENT': number;
+}
+
 export interface JobDefineParams {
   name: string;
 
   schedule: string;
+
+  blocking?: boolean;
 
   max_retries?: number;
 
@@ -201,23 +228,23 @@ export interface JobDefineParams {
 
 export interface JobPauseParams {
   /**
-   * Job ID
+   * 1
    */
-  query_jobId: number;
+  'X-API-ENVIRONMENT': number;
 }
 
 export interface JobResumeParams {
   /**
-   * Job ID
+   * 1
    */
-  query_jobId: number;
+  'X-API-ENVIRONMENT': number;
 }
 
 export interface JobTriggerParams {
   /**
-   * Job ID
+   * 1
    */
-  query_jobId: number;
+  'X-API-ENVIRONMENT': number;
 }
 
 export declare namespace Jobs {
@@ -227,6 +254,7 @@ export declare namespace Jobs {
     type JobDeleteResponse as JobDeleteResponse,
     type JobRetrieveParams as JobRetrieveParams,
     type JobListParams as JobListParams,
+    type JobDeleteParams as JobDeleteParams,
     type JobDefineParams as JobDefineParams,
     type JobPauseParams as JobPauseParams,
     type JobResumeParams as JobResumeParams,

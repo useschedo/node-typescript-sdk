@@ -30,6 +30,7 @@ export {
   type JobDeleteResponse,
   type JobRetrieveParams,
   type JobListParams,
+  type JobDeleteParams,
   type JobDefineParams,
   type JobPauseParams,
   type JobResumeParams,
