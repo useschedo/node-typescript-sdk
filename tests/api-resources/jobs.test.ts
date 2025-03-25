@@ -43,8 +43,8 @@ describe('resource jobs', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('delete', async () => {
-    const responsePromise = client.jobs.delete(0);
+  test.skip('delete: only required params', async () => {
+    const responsePromise = client.jobs.delete(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -52,6 +52,11 @@ describe('resource jobs', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('delete: required and optional params', async () => {
+    const response = await client.jobs.delete(0, { 'X-API-ENVIRONMENT': 0 });
   });
 
   // skipped: tests are disabled for the time being
@@ -71,6 +76,7 @@ describe('resource jobs', () => {
     const response = await client.jobs.define({
       name: 'Name of your job',
       schedule: '0 0 * * *',
+      blocking: true,
       max_retries: 0,
       metadata: { foo: 'bar' },
       timeout: 'timeout',
@@ -79,7 +85,7 @@ describe('resource jobs', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('pause: only required params', async () => {
-    const responsePromise = client.jobs.pause('jobId', { query_jobId: 0 });
+    const responsePromise = client.jobs.pause(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -91,12 +97,12 @@ describe('resource jobs', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('pause: required and optional params', async () => {
-    const response = await client.jobs.pause('jobId', { query_jobId: 0 });
+    const response = await client.jobs.pause(0, { 'X-API-ENVIRONMENT': 0 });
   });
 
   // skipped: tests are disabled for the time being
   test.skip('resume: only required params', async () => {
-    const responsePromise = client.jobs.resume('jobId', { query_jobId: 0 });
+    const responsePromise = client.jobs.resume(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -108,12 +114,12 @@ describe('resource jobs', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('resume: required and optional params', async () => {
-    const response = await client.jobs.resume('jobId', { query_jobId: 0 });
+    const response = await client.jobs.resume(0, { 'X-API-ENVIRONMENT': 0 });
   });
 
   // skipped: tests are disabled for the time being
   test.skip('trigger: only required params', async () => {
-    const responsePromise = client.jobs.trigger('jobId', { query_jobId: 0 });
+    const responsePromise = client.jobs.trigger(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -125,6 +131,6 @@ describe('resource jobs', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('trigger: required and optional params', async () => {
-    const response = await client.jobs.trigger('jobId', { query_jobId: 0 });
+    const response = await client.jobs.trigger(0, { 'X-API-ENVIRONMENT': 0 });
   });
 });
