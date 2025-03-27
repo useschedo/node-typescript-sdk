@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { SchedoError } from '../../error';
+import { SchedoError } from '../../core/error';
 
 export const toBase64 = (data: string | Uint8Array | null | undefined): string => {
   if (!data) return '';
