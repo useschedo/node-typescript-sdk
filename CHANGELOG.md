@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.31 (2025-03-27)
+
+Full Changelog: [v0.1.0-alpha.30...v0.1.0-alpha.31](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.30...v0.1.0-alpha.31)
+
+### Chores
+
+* **client:** move misc public files to new `core/` directory, deprecate old paths ([#99](https://github.com/useschedo/node-typescript-sdk/issues/99)) ([d07d75e](https://github.com/useschedo/node-typescript-sdk/commit/d07d75eb95fbe2bfe5e327c83f87f2209c901eac))
+
 ## 0.1.0-alpha.30 (2025-03-25)
 
 Full Changelog: [v0.1.0-alpha.29...v0.1.0-alpha.30](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.29...v0.1.0-alpha.30)

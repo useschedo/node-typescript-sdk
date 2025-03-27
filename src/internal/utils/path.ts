@@ -1,4 +1,4 @@
-import { SchedoError } from '../../error';
+import { SchedoError } from '../../core/error';
 
 /**
  * Percent-encode everything that isn't safe to have in a path without encoding safe chars.
