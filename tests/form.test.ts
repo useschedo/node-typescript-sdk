@@ -1,5 +1,5 @@
 import { multipartFormRequestOptions, createForm } from '@useschedo/node-sdk/internal/uploads';
-import { toFile } from '@useschedo/node-sdk/uploads';
+import { toFile } from '@useschedo/node-sdk/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {
