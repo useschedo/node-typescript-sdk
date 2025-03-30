@@ -44,6 +44,7 @@ describe('resource jobExecution', () => {
       complete_server_time_utc: '2023-01-01T00:00:00Z',
       error: 'Error message',
       output: 'Output message',
+      start_server_time_utc: '2023-01-01T00:00:00Z',
     });
   });
 
