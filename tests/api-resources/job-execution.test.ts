@@ -41,6 +41,7 @@ describe('resource jobExecution', () => {
   test.skip('complete: required and optional params', async () => {
     const response = await client.jobExecution.complete(0, {
       success: true,
+      complete_server_time_utc: '2023-01-01T00:00:00Z',
       error: 'Error message',
       output: 'Output message',
     });

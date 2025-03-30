@@ -18,6 +18,7 @@ export {
 export {
   JobExecutionResource,
   type JobExecution,
+  type JobExecutionFrame,
   type JobExecutionListResponse,
   type JobExecutionPollResponse,
   type JobExecutionListParams,
