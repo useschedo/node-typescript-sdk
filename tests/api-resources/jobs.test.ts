@@ -77,9 +77,8 @@ describe('resource jobs', () => {
       name: 'Name of your job',
       schedule: '0 0 * * *',
       blocking: true,
-      max_retries: 0,
       metadata: { foo: 'bar' },
-      timeout: 'timeout',
+      timeout_seconds: 0,
     });
   });
 

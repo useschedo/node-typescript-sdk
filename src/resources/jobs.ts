@@ -178,6 +178,11 @@ export interface Job {
   timeout?: string;
 
   /**
+   * Maximum execution time before job is terminated
+   */
+  timeout_seconds?: number;
+
+  /**
    * Time when the job was last updated
    */
   updated_at?: string;
@@ -219,11 +224,9 @@ export interface JobDefineParams {
 
   blocking?: boolean;
 
-  max_retries?: number;
-
   metadata?: Record<string, unknown>;
 
-  timeout?: string;
+  timeout_seconds?: number;
 }
 
 export interface JobPauseParams {

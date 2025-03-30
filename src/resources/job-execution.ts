@@ -94,7 +94,61 @@ export interface JobExecution {
   status?: string;
 }
 
-export type JobExecutionListResponse = Array<JobExecution>;
+export interface JobExecutionFrame {
+  /**
+   * ID of the ent.
+   */
+  id?: number;
+
+  /**
+   * Duration holds the value of the "duration" field.
+   */
+  duration?: number;
+
+  /**
+   * Time when execution completed
+   */
+  end_time?: string;
+
+  /**
+   * Error message if execution failed
+   */
+  error?: string;
+
+  /**
+   * Exit code of the executed command
+   */
+  exit_code?: number;
+
+  /**
+   * JobCode holds the value of the "job_code" field.
+   */
+  job_code?: string;
+
+  metadata?: Record<string, unknown>;
+
+  /**
+   * Output of the executed command
+   */
+  output?: string;
+
+  /**
+   * Time when execution was picked up by a worker
+   */
+  pick_up_time?: string;
+
+  /**
+   * Time when execution started
+   */
+  start_time?: string;
+
+  /**
+   * Execution status (running, completed, failed, skipped, expired)
+   */
+  status?: string;
+}
+
+export type JobExecutionListResponse = Array<JobExecutionFrame>;
 
 export type JobExecutionPollResponse = Array<JobExecution>;
 
@@ -118,6 +172,8 @@ export interface JobExecutionListParams {
 export interface JobExecutionCompleteParams {
   success: boolean;
 
+  complete_server_time_utc?: string;
+
   error?: string;
 
   output?: string;
@@ -126,6 +182,7 @@ export interface JobExecutionCompleteParams {
 export declare namespace JobExecutionResource {
   export {
     type JobExecution as JobExecution,
+    type JobExecutionFrame as JobExecutionFrame,
     type JobExecutionListResponse as JobExecutionListResponse,
     type JobExecutionPollResponse as JobExecutionPollResponse,
     type JobExecutionListParams as JobExecutionListParams,
