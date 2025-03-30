@@ -172,13 +172,13 @@ export interface JobExecutionListParams {
 export interface JobExecutionCompleteParams {
   success: boolean;
 
-  complete_server_time_utc?: string;
+  complete_server_time_utc?: number;
 
   error?: string;
 
   output?: string;
 
-  start_server_time_utc?: string;
+  start_server_time_utc?: number;
 }
 
 export declare namespace JobExecutionResource {
