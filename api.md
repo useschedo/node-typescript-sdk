@@ -50,6 +50,7 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/job-execution.ts">JobExecution</a></code>
+- <code><a href="./src/resources/job-execution.ts">JobExecutionFrame</a></code>
 - <code><a href="./src/resources/job-execution.ts">JobExecutionListResponse</a></code>
 - <code><a href="./src/resources/job-execution.ts">JobExecutionPollResponse</a></code>
 

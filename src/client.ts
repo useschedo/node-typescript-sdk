@@ -38,6 +38,7 @@ import {
 import {
   JobExecution,
   JobExecutionCompleteParams,
+  JobExecutionFrame,
   JobExecutionListParams,
   JobExecutionListResponse,
   JobExecutionPollResponse,
@@ -758,6 +759,7 @@ export declare namespace Schedo {
   export {
     JobExecutionResource as JobExecutionResource,
     type JobExecution as JobExecution,
+    type JobExecutionFrame as JobExecutionFrame,
     type JobExecutionListResponse as JobExecutionListResponse,
     type JobExecutionPollResponse as JobExecutionPollResponse,
     type JobExecutionListParams as JobExecutionListParams,
