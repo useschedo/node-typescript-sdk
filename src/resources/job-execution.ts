@@ -177,6 +177,8 @@ export interface JobExecutionCompleteParams {
   error?: string;
 
   output?: string;
+
+  start_server_time_utc?: string;
 }
 
 export declare namespace JobExecutionResource {
