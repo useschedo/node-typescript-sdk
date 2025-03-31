@@ -83,6 +83,23 @@ describe('resource jobs', () => {
   });
 
   // skipped: tests are disabled for the time being
+  test.skip('mute: only required params', async () => {
+    const responsePromise = client.jobs.mute(0, { 'X-API-ENVIRONMENT': 0 });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('mute: required and optional params', async () => {
+    const response = await client.jobs.mute(0, { 'X-API-ENVIRONMENT': 0, muted: true });
+  });
+
+  // skipped: tests are disabled for the time being
   test.skip('pause: only required params', async () => {
     const responsePromise = client.jobs.pause(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
