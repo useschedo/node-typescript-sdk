@@ -33,6 +33,7 @@ export {
   type JobListParams,
   type JobDeleteParams,
   type JobDefineParams,
+  type JobMuteParams,
   type JobPauseParams,
   type JobResumeParams,
   type JobTriggerParams,
