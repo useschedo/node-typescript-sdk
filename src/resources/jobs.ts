@@ -51,6 +51,18 @@ export class Jobs extends APIResource {
   }
 
   /**
+   * Update a job's muted status
+   */
+  mute(jobID: number, params: JobMuteParams, options?: RequestOptions): APIPromise<Job> {
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment, ...body } = params;
+    return this._client.patch(path`/jobs/mute/${jobID}`, {
+      body,
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
+  }
+
+  /**
    * Temporary stops a job from running
    */
   pause(
@@ -148,6 +160,11 @@ export interface Job {
   metadata?: Record<string, unknown>;
 
   /**
+   * Whether notifications for this job are muted
+   */
+  muted?: boolean;
+
+  /**
    * Name of the job
    */
   name?: string;
@@ -229,6 +246,18 @@ export interface JobDefineParams {
   timeout_seconds?: number;
 }
 
+export interface JobMuteParams {
+  /**
+   * Header param: 1
+   */
+  'X-API-ENVIRONMENT': number;
+
+  /**
+   * Body param:
+   */
+  muted?: boolean;
+}
+
 export interface JobPauseParams {
   /**
    * 1
@@ -259,6 +288,7 @@ export declare namespace Jobs {
     type JobListParams as JobListParams,
     type JobDeleteParams as JobDeleteParams,
     type JobDefineParams as JobDefineParams,
+    type JobMuteParams as JobMuteParams,
     type JobPauseParams as JobPauseParams,
     type JobResumeParams as JobResumeParams,
     type JobTriggerParams as JobTriggerParams,
