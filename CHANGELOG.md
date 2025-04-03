@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.35 (2025-04-03)
+
+Full Changelog: [v0.1.0-alpha.34...v0.1.0-alpha.35](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.34...v0.1.0-alpha.35)
+
+### Bug Fixes
+
+* **client:** send `X-Stainless-Timeout` in seconds ([#112](https://github.com/useschedo/node-typescript-sdk/issues/112)) ([39b77df](https://github.com/useschedo/node-typescript-sdk/commit/39b77df2f5098569502692c167193567bd16965d))
+
 ## 0.1.0-alpha.34 (2025-03-31)
 
 Full Changelog: [v0.1.0-alpha.33...v0.1.0-alpha.34](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.33...v0.1.0-alpha.34)
