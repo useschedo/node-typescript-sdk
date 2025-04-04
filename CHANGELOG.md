@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.36 (2025-04-04)
+
+Full Changelog: [v0.1.0-alpha.35...v0.1.0-alpha.36](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.35...v0.1.0-alpha.36)
+
+### Bug Fixes
+
+* **api:** improve type resolution when importing as a package ([#117](https://github.com/useschedo/node-typescript-sdk/issues/117)) ([70cb353](https://github.com/useschedo/node-typescript-sdk/commit/70cb35362ae7fa09c4e3c000dd5cc34b51728a2d))
+
+
+### Chores
+
+* **internal:** add aliases for Record and Array ([#115](https://github.com/useschedo/node-typescript-sdk/issues/115)) ([3e09aad](https://github.com/useschedo/node-typescript-sdk/commit/3e09aad4a1e4219cc7e44a5b28a2249abf6dee05))
+
 ## 0.1.0-alpha.35 (2025-04-03)
 
 Full Changelog: [v0.1.0-alpha.34...v0.1.0-alpha.35](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.34...v0.1.0-alpha.35)
