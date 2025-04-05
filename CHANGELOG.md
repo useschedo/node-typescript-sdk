@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.37 (2025-04-05)
+
+Full Changelog: [v0.1.0-alpha.36...v0.1.0-alpha.37](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.36...v0.1.0-alpha.37)
+
+### Bug Fixes
+
+* **mcp:** remove unused tools.ts ([#120](https://github.com/useschedo/node-typescript-sdk/issues/120)) ([2cf753f](https://github.com/useschedo/node-typescript-sdk/commit/2cf753fb1dc4962ba95f681e0c75f207bf1b0146))
+
 ## 0.1.0-alpha.36 (2025-04-04)
 
 Full Changelog: [v0.1.0-alpha.35...v0.1.0-alpha.36](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.35...v0.1.0-alpha.36)
