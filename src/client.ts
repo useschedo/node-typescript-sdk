@@ -211,8 +211,8 @@ export class Schedo {
     return;
   }
 
-  protected authHeaders(opts: FinalRequestOptions): Headers | undefined {
-    return new Headers({ 'x-api-key': this.apiKey });
+  protected authHeaders(opts: FinalRequestOptions): NullableHeaders | undefined {
+    return buildHeaders([{ 'x-api-key': this.apiKey }]);
   }
 
   /**
