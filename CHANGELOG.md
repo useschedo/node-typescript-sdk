@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.38 (2025-04-08)
+
+Full Changelog: [v0.1.0-alpha.37...v0.1.0-alpha.38](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.37...v0.1.0-alpha.38)
+
+### Bug Fixes
+
+* **client:** send all configured auth headers ([#123](https://github.com/useschedo/node-typescript-sdk/issues/123)) ([8408364](https://github.com/useschedo/node-typescript-sdk/commit/840836496e2763f477ec4defaf57fef8a5e096fb))
+
 ## 0.1.0-alpha.37 (2025-04-05)
 
 Full Changelog: [v0.1.0-alpha.36...v0.1.0-alpha.37](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.36...v0.1.0-alpha.37)
