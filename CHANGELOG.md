@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.39 (2025-04-11)
+
+Full Changelog: [v0.1.0-alpha.38...v0.1.0-alpha.39](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.38...v0.1.0-alpha.39)
+
+### Bug Fixes
+
+* **internal:** fix file uploads in node 18 jest ([c329b79](https://github.com/useschedo/node-typescript-sdk/commit/c329b797e120c679dbead2d4abc2a41f88fd2f06))
+
+
+### Chores
+
+* **internal:** improve node 18 shims ([ad2c179](https://github.com/useschedo/node-typescript-sdk/commit/ad2c1790314e458fabfd9719d5fe2d5b1f916025))
+* **internal:** reduce CI branch coverage ([8315cb1](https://github.com/useschedo/node-typescript-sdk/commit/8315cb1f802d82491e47f64480a19e51f664615c))
+* **internal:** upload builds and expand CI branch coverage ([221df2b](https://github.com/useschedo/node-typescript-sdk/commit/221df2b4bada6fabe743b65a640acaeb396af20e))
+
 ## 0.1.0-alpha.38 (2025-04-08)
 
 Full Changelog: [v0.1.0-alpha.37...v0.1.0-alpha.38](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.37...v0.1.0-alpha.38)
