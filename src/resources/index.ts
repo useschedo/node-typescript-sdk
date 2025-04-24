@@ -39,4 +39,12 @@ export {
   type JobResumeParams,
   type JobTriggerParams,
 } from './jobs';
+export {
+  OrgEmails,
+  type OrgEmailCreateResponse,
+  type OrgEmailListResponse,
+  type OrgEmailDeleteResponse,
+  type OrgEmailCreateParams,
+  type OrgEmailDeleteParams,
+} from './org-emails';
 export { OrgResource, type Org, type OrgEdges } from './org';
