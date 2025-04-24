@@ -71,3 +71,17 @@ Types:
 Methods:
 
 - <code title="get /org">client.org.<a href="./src/resources/org.ts">retrieve</a>() -> Org</code>
+
+# OrgEmails
+
+Types:
+
+- <code><a href="./src/resources/org-emails.ts">OrgEmailCreateResponse</a></code>
+- <code><a href="./src/resources/org-emails.ts">OrgEmailListResponse</a></code>
+- <code><a href="./src/resources/org-emails.ts">OrgEmailDeleteResponse</a></code>
+
+Methods:
+
+- <code title="post /org/emails">client.orgEmails.<a href="./src/resources/org-emails.ts">create</a>({ ...params }) -> OrgEmailCreateResponse</code>
+- <code title="get /org/emails">client.orgEmails.<a href="./src/resources/org-emails.ts">list</a>() -> OrgEmailListResponse</code>
+- <code title="delete /org/emails">client.orgEmails.<a href="./src/resources/org-emails.ts">delete</a>({ ...params }) -> OrgEmailDeleteResponse</code>
