@@ -10,7 +10,7 @@ Types:
 Methods:
 
 - <code title="post /apikeys">client.apikeys.<a href="./src/resources/apikeys.ts">create</a>({ ...params }) -> APIKey</code>
-- <code title="get /apikeys">client.apikeys.<a href="./src/resources/apikeys.ts">list</a>() -> ApikeyListResponse</code>
+- <code title="get /apikeys">client.apikeys.<a href="./src/resources/apikeys.ts">list</a>({ ...params }) -> ApikeyListResponse</code>
 - <code title="delete /apikeys/revoke/{id}">client.apikeys.<a href="./src/resources/apikeys.ts">revoke</a>(id) -> ApikeyRevokeResponse</code>
 
 # Environments

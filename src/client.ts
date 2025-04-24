@@ -24,6 +24,7 @@ import {
   APIKey,
   APIKeyEdges,
   ApikeyCreateParams,
+  ApikeyListParams,
   ApikeyListResponse,
   ApikeyRevokeResponse,
   Apikeys,
@@ -733,6 +734,7 @@ export declare namespace Schedo {
     type ApikeyListResponse as ApikeyListResponse,
     type ApikeyRevokeResponse as ApikeyRevokeResponse,
     type ApikeyCreateParams as ApikeyCreateParams,
+    type ApikeyListParams as ApikeyListParams,
   };
 
   export {

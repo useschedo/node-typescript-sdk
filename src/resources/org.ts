@@ -32,6 +32,11 @@ export interface Org {
   edges?: OrgEdges;
 
   /**
+   * List of organization emails
+   */
+  emails?: Array<string>;
+
+  /**
    * Organization name
    */
   name?: string;
