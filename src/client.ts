@@ -60,6 +60,14 @@ import {
   Output,
 } from './resources/jobs';
 import { Org, OrgEdges, OrgResource } from './resources/org';
+import {
+  OrgEmailCreateParams,
+  OrgEmailCreateResponse,
+  OrgEmailDeleteParams,
+  OrgEmailDeleteResponse,
+  OrgEmailListResponse,
+  OrgEmails,
+} from './resources/org-emails';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
@@ -718,12 +726,14 @@ export class Schedo {
   jobs: API.Jobs = new API.Jobs(this);
   jobExecution: API.JobExecutionResource = new API.JobExecutionResource(this);
   org: API.OrgResource = new API.OrgResource(this);
+  orgEmails: API.OrgEmails = new API.OrgEmails(this);
 }
 Schedo.Apikeys = Apikeys;
 Schedo.Environments = Environments;
 Schedo.Jobs = Jobs;
 Schedo.JobExecutionResource = JobExecutionResource;
 Schedo.OrgResource = OrgResource;
+Schedo.OrgEmails = OrgEmails;
 export declare namespace Schedo {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -771,4 +781,13 @@ export declare namespace Schedo {
   };
 
   export { OrgResource as OrgResource, type Org as Org, type OrgEdges as OrgEdges };
+
+  export {
+    OrgEmails as OrgEmails,
+    type OrgEmailCreateResponse as OrgEmailCreateResponse,
+    type OrgEmailListResponse as OrgEmailListResponse,
+    type OrgEmailDeleteResponse as OrgEmailDeleteResponse,
+    type OrgEmailCreateParams as OrgEmailCreateParams,
+    type OrgEmailDeleteParams as OrgEmailDeleteParams,
+  };
 }
