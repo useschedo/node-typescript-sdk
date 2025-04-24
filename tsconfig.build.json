@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "schedosdk/*": ["dist/src/*"],
-      "schedosdk": ["dist/src/index.ts"],
+      "@useschedo/node-sdk/*": ["dist/src/*"],
+      "@useschedo/node-sdk": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,

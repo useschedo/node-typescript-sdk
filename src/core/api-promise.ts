@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { type Schedosdk } from '../client';
+import { type Schedo } from '../client';
 
 import { type PromiseOrValue } from '../internal/types';
 import { APIResponseProps, defaultParseResponse } from '../internal/parse';
@@ -11,13 +11,13 @@ import { APIResponseProps, defaultParseResponse } from '../internal/parse';
  */
 export class APIPromise<T> extends Promise<T> {
   private parsedPromise: Promise<T> | undefined;
-  #client: Schedosdk;
+  #client: Schedo;
 
   constructor(
-    client: Schedosdk,
+    client: Schedo,
     private responsePromise: Promise<APIResponseProps>,
     private parseResponse: (
-      client: Schedosdk,
+      client: Schedo,
       props: APIResponseProps,
     ) => PromiseOrValue<T> = defaultParseResponse,
   ) {

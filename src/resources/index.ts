@@ -3,23 +3,40 @@
 export {
   Apikeys,
   type APIKey,
+  type APIKeyEdges,
   type ApikeyListResponse,
   type ApikeyRevokeResponse,
   type ApikeyCreateParams,
   type ApikeyListParams,
 } from './apikeys';
 export {
+  Environments,
+  type Environment,
+  type EnvironmentEdges,
+  type EnvironmentListResponse,
+  type EnvironmentCreateParams,
+} from './environments';
+export {
+  JobExecutionResource,
+  type JobExecution,
+  type JobExecutionFrame,
+  type JobExecutionListResponse,
+  type JobExecutionPollResponse,
+  type JobExecutionListParams,
+  type JobExecutionCompleteParams,
+} from './job-execution';
+export {
   Jobs,
   type Job,
-  type JobRetrieveResponse,
+  type Output,
   type JobDeleteResponse,
   type JobRetrieveParams,
   type JobListParams,
   type JobDeleteParams,
-  type JobCreateDefinitionParams,
+  type JobDefineParams,
   type JobMuteParams,
   type JobPauseParams,
   type JobResumeParams,
   type JobTriggerParams,
-} from './jobs/jobs';
-export { OrgResource, type Org } from './org/org';
+} from './jobs';
+export { OrgResource, type Org, type OrgEdges } from './org';

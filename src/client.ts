@@ -12,7 +12,6 @@ import type { APIResponseProps } from './internal/parse';
 import { getPlatformHeaders } from './internal/detect-platform';
 import * as Shims from './internal/shims';
 import * as Opts from './internal/request-options';
-import * as qs from './internal/qs';
 import { VERSION } from './version';
 import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
@@ -23,18 +22,32 @@ import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import {
   APIKey,
+  APIKeyEdges,
   ApikeyCreateParams,
   ApikeyListParams,
   ApikeyListResponse,
   ApikeyRevokeResponse,
   Apikeys,
 } from './resources/apikeys';
-import { readEnv } from './internal/utils/env';
-import { formatRequestDetails, loggerFor } from './internal/utils/log';
-import { isEmptyObj } from './internal/utils/values';
+import {
+  Environment,
+  EnvironmentCreateParams,
+  EnvironmentEdges,
+  EnvironmentListResponse,
+  Environments,
+} from './resources/environments';
+import {
+  JobExecution,
+  JobExecutionCompleteParams,
+  JobExecutionFrame,
+  JobExecutionListParams,
+  JobExecutionListResponse,
+  JobExecutionPollResponse,
+  JobExecutionResource,
+} from './resources/job-execution';
 import {
   Job,
-  JobCreateDefinitionParams,
+  JobDefineParams,
   JobDeleteParams,
   JobDeleteResponse,
   JobListParams,
@@ -42,22 +55,25 @@ import {
   JobPauseParams,
   JobResumeParams,
   JobRetrieveParams,
-  JobRetrieveResponse,
   JobTriggerParams,
   Jobs,
-} from './resources/jobs/jobs';
-import { Org, OrgResource } from './resources/org/org';
+  Output,
+} from './resources/jobs';
+import { Org, OrgEdges, OrgResource } from './resources/org';
+import { readEnv } from './internal/utils/env';
+import { formatRequestDetails, loggerFor } from './internal/utils/log';
+import { isEmptyObj } from './internal/utils/values';
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['SCHEDOSDK_API_KEY'].
+   * Defaults to process.env['SCHEDO_API_KEY'].
    */
-  apiKey?: string | null | undefined;
+  apiKey?: string | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['SCHEDOSDK_BASE_URL'].
+   * Defaults to process.env['SCHEDO_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -109,7 +125,7 @@ export interface ClientOptions {
   /**
    * Set the log level.
    *
-   * Defaults to process.env['SCHEDOSDK_LOG'] or 'warn' if it isn't set.
+   * Defaults to process.env['SCHEDO_LOG'] or 'warn' if it isn't set.
    */
   logLevel?: LogLevel | undefined;
 
@@ -122,10 +138,10 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Schedosdk API.
+ * API Client for interfacing with the Schedo API.
  */
-export class Schedosdk {
-  apiKey: string | null;
+export class Schedo {
+  apiKey: string;
 
   baseURL: string;
   maxRetries: number;
@@ -140,10 +156,10 @@ export class Schedosdk {
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Schedosdk API.
+   * API Client for interfacing with the Schedo API.
    *
-   * @param {string | null | undefined} [opts.apiKey=process.env['SCHEDOSDK_API_KEY'] ?? null]
-   * @param {string} [opts.baseURL=process.env['SCHEDOSDK_BASE_URL'] ?? https:/api.schedo.dev/api] - Override the default base URL for the API.
+   * @param {string | undefined} [opts.apiKey=process.env['SCHEDO_API_KEY'] ?? undefined]
+   * @param {string} [opts.baseURL=process.env['SCHEDO_BASE_URL'] ?? https://api.schedo.dev] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -152,25 +168,31 @@ export class Schedosdk {
    * @param {Record<string, string | undefined>} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = readEnv('SCHEDOSDK_BASE_URL'),
-    apiKey = readEnv('SCHEDOSDK_API_KEY') ?? null,
+    baseURL = readEnv('SCHEDO_BASE_URL'),
+    apiKey = readEnv('SCHEDO_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
+    if (apiKey === undefined) {
+      throw new Errors.SchedoError(
+        "The SCHEDO_API_KEY environment variable is missing or empty; either provide it, or instantiate the Schedo client with an apiKey option, like new Schedo({ apiKey: 'My API Key' }).",
+      );
+    }
+
     const options: ClientOptions = {
       apiKey,
       ...opts,
-      baseURL: baseURL || `https:/api.schedo.dev/api`,
+      baseURL: baseURL || `https://api.schedo.dev`,
     };
 
     this.baseURL = options.baseURL!;
-    this.timeout = options.timeout ?? Schedosdk.DEFAULT_TIMEOUT /* 1 minute */;
+    this.timeout = options.timeout ?? Schedo.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
     // Set default logLevel early so that we can log a warning in parseLogLevel.
     this.logLevel = defaultLogLevel;
     this.logLevel =
       parseLogLevel(options.logLevel, 'ClientOptions.logLevel', this) ??
-      parseLogLevel(readEnv('SCHEDOSDK_LOG'), "process.env['SCHEDOSDK_LOG']", this) ??
+      parseLogLevel(readEnv('SCHEDO_LOG'), "process.env['SCHEDO_LOG']", this) ??
       defaultLogLevel;
     this.fetchOptions = options.fetchOptions;
     this.maxRetries = options.maxRetries ?? 2;
@@ -187,27 +209,31 @@ export class Schedosdk {
   }
 
   protected validateHeaders({ values, nulls }: NullableHeaders) {
-    if (this.apiKey && values.get('authorization')) {
-      return;
-    }
-    if (nulls.has('authorization')) {
-      return;
-    }
-
-    throw new Error(
-      'Could not resolve authentication method. Expected the apiKey to be set. Or for the "Authorization" headers to be explicitly omitted',
-    );
+    return;
   }
 
   protected authHeaders(opts: FinalRequestOptions): NullableHeaders | undefined {
-    if (this.apiKey == null) {
-      return undefined;
-    }
-    return buildHeaders([{ Authorization: `Bearer ${this.apiKey}` }]);
+    return buildHeaders([{ 'x-api-key': this.apiKey }]);
   }
 
+  /**
+   * Basic re-implementation of `qs.stringify` for primitive types.
+   */
   protected stringifyQuery(query: Record<string, unknown>): string {
-    return qs.stringify(query, { arrayFormat: 'comma' });
+    return Object.entries(query)
+      .filter(([_, value]) => typeof value !== 'undefined')
+      .map(([key, value]) => {
+        if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+          return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+        }
+        if (value === null) {
+          return `${encodeURIComponent(key)}=`;
+        }
+        throw new Errors.SchedoError(
+          `Cannot stringify type ${typeof value}; Expected string, number, boolean, or null. If you need to pass nested query parameters, you can manually encode them, e.g. { query: { 'foo[key1]': value1, 'foo[key2]': value2 } }, and please open a GitHub issue requesting better support for your use case.`,
+        );
+      })
+      .join('&');
   }
 
   private getUserAgent(): string {
@@ -668,10 +694,10 @@ export class Schedosdk {
     }
   }
 
-  static Schedosdk = this;
+  static Schedo = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static SchedosdkError = Errors.SchedosdkError;
+  static SchedoError = Errors.SchedoError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -688,18 +714,23 @@ export class Schedosdk {
   static toFile = Uploads.toFile;
 
   apikeys: API.Apikeys = new API.Apikeys(this);
+  environments: API.Environments = new API.Environments(this);
   jobs: API.Jobs = new API.Jobs(this);
+  jobExecution: API.JobExecutionResource = new API.JobExecutionResource(this);
   org: API.OrgResource = new API.OrgResource(this);
 }
-Schedosdk.Apikeys = Apikeys;
-Schedosdk.Jobs = Jobs;
-Schedosdk.OrgResource = OrgResource;
-export declare namespace Schedosdk {
+Schedo.Apikeys = Apikeys;
+Schedo.Environments = Environments;
+Schedo.Jobs = Jobs;
+Schedo.JobExecutionResource = JobExecutionResource;
+Schedo.OrgResource = OrgResource;
+export declare namespace Schedo {
   export type RequestOptions = Opts.RequestOptions;
 
   export {
     Apikeys as Apikeys,
     type APIKey as APIKey,
+    type APIKeyEdges as APIKeyEdges,
     type ApikeyListResponse as ApikeyListResponse,
     type ApikeyRevokeResponse as ApikeyRevokeResponse,
     type ApikeyCreateParams as ApikeyCreateParams,
@@ -707,19 +738,37 @@ export declare namespace Schedosdk {
   };
 
   export {
+    Environments as Environments,
+    type Environment as Environment,
+    type EnvironmentEdges as EnvironmentEdges,
+    type EnvironmentListResponse as EnvironmentListResponse,
+    type EnvironmentCreateParams as EnvironmentCreateParams,
+  };
+
+  export {
     Jobs as Jobs,
     type Job as Job,
-    type JobRetrieveResponse as JobRetrieveResponse,
+    type Output as Output,
     type JobDeleteResponse as JobDeleteResponse,
     type JobRetrieveParams as JobRetrieveParams,
     type JobListParams as JobListParams,
     type JobDeleteParams as JobDeleteParams,
-    type JobCreateDefinitionParams as JobCreateDefinitionParams,
+    type JobDefineParams as JobDefineParams,
     type JobMuteParams as JobMuteParams,
     type JobPauseParams as JobPauseParams,
     type JobResumeParams as JobResumeParams,
     type JobTriggerParams as JobTriggerParams,
   };
 
-  export { OrgResource as OrgResource, type Org as Org };
+  export {
+    JobExecutionResource as JobExecutionResource,
+    type JobExecution as JobExecution,
+    type JobExecutionFrame as JobExecutionFrame,
+    type JobExecutionListResponse as JobExecutionListResponse,
+    type JobExecutionPollResponse as JobExecutionPollResponse,
+    type JobExecutionListParams as JobExecutionListParams,
+    type JobExecutionCompleteParams as JobExecutionCompleteParams,
+  };
+
+  export { OrgResource as OrgResource, type Org as Org, type OrgEdges as OrgEdges };
 }

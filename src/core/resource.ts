@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import type { Schedosdk } from '../client';
+import type { Schedo } from '../client';
 
 export class APIResource {
-  protected _client: Schedosdk;
+  protected _client: Schedo;
 
-  constructor(client: Schedosdk) {
+  constructor(client: Schedo) {
     this._client = client;
   }
 }

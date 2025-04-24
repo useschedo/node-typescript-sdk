@@ -48,7 +48,7 @@ export interface APIKey {
    * Edges holds the relations/edges for other nodes in the graph. The values are
    * being populated by the ApiKeyQuery when eager-loading is set.
    */
-  edges?: unknown;
+  edges?: APIKeyEdges;
 
   /**
    * EnvironmentID holds the value of the "environment_id" field.
@@ -81,6 +81,8 @@ export interface APIKey {
   revoked?: boolean;
 }
 
+export type APIKeyEdges = unknown;
+
 export type ApikeyListResponse = Array<Array<APIKey>>;
 
 export type ApikeyRevokeResponse = Array<Array<APIKey>>;
@@ -101,6 +103,7 @@ export interface ApikeyListParams {
 export declare namespace Apikeys {
   export {
     type APIKey as APIKey,
+    type APIKeyEdges as APIKeyEdges,
     type ApikeyListResponse as ApikeyListResponse,
     type ApikeyRevokeResponse as ApikeyRevokeResponse,
     type ApikeyCreateParams as ApikeyCreateParams,

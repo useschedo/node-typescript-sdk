@@ -1,12 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Schedosdk as default } from './client';
+export { Schedo as default } from './client';
 
 export { type Uploadable, toFile } from './core/uploads';
 export { APIPromise } from './core/api-promise';
-export { Schedosdk, type ClientOptions } from './client';
+export { Schedo, type ClientOptions } from './client';
 export {
-  SchedosdkError,
+  SchedoError,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,

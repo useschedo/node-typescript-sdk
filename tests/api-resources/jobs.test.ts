@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Schedosdk from 'schedosdk';
+import Schedo from '@useschedo/node-sdk';
 
-const client = new Schedosdk({
+const client = new Schedo({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -60,8 +60,8 @@ describe('resource jobs', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('createDefinition: only required params', async () => {
-    const responsePromise = client.jobs.createDefinition({ name: 'Name of your job', schedule: '0 0 * * *' });
+  test.skip('define: only required params', async () => {
+    const responsePromise = client.jobs.define({ name: 'Name of your job', schedule: '0 0 * * *' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -72,8 +72,8 @@ describe('resource jobs', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('createDefinition: required and optional params', async () => {
-    const response = await client.jobs.createDefinition({
+  test.skip('define: required and optional params', async () => {
+    const response = await client.jobs.define({
       name: 'Name of your job',
       schedule: '0 0 * * *',
       blocking: true,

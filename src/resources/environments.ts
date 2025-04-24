@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
+import { APIResource } from '../core/resource';
 import * as OrgAPI from './org';
-import { APIPromise } from '../../core/api-promise';
-import { RequestOptions } from '../../internal/request-options';
-import { path } from '../../internal/utils/path';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Environments extends APIResource {
   /**
@@ -44,7 +44,7 @@ export interface Environment {
    * Edges holds the relations/edges for other nodes in the graph. The values are
    * being populated by the EnvironmentQuery when eager-loading is set.
    */
-  edges?: Environment.Edges;
+  edges?: EnvironmentEdges;
 
   /**
    * Name holds the value of the "name" field.
@@ -57,17 +57,11 @@ export interface Environment {
   organization_id?: number;
 }
 
-export namespace Environment {
+export interface EnvironmentEdges {
   /**
-   * Edges holds the relations/edges for other nodes in the graph. The values are
-   * being populated by the EnvironmentQuery when eager-loading is set.
+   * Organization that owns this environment
    */
-  export interface Edges {
-    /**
-     * Organization that owns this environment
-     */
-    organization?: Array<OrgAPI.Org>;
-  }
+  organization?: Array<OrgAPI.Org>;
 }
 
 export type EnvironmentListResponse = Array<Environment>;
@@ -79,6 +73,7 @@ export interface EnvironmentCreateParams {
 export declare namespace Environments {
   export {
     type Environment as Environment,
+    type EnvironmentEdges as EnvironmentEdges,
     type EnvironmentListResponse as EnvironmentListResponse,
     type EnvironmentCreateParams as EnvironmentCreateParams,
   };

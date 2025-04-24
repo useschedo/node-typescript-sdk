@@ -1,4 +1,4 @@
-import { SchedosdkError } from '../../core/error';
+import { SchedoError } from '../../core/error';
 
 /**
  * Percent-encode everything that isn't safe to have in a path without encoding safe chars.
@@ -51,9 +51,7 @@ export const createPathTagFunction = (pathEncoder = encodeURIPath) =>
         return acc + spaces + arrows;
       }, '');
 
-      throw new SchedosdkError(
-        `Path parameters result in path with invalid segments:\n${path}\n${underline}`,
-      );
+      throw new SchedoError(`Path parameters result in path with invalid segments:\n${path}\n${underline}`);
     }
 
     return path;

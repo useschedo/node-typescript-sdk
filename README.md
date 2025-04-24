@@ -1,21 +1,18 @@
-# Schedosdk TypeScript API Library
+# Schedo TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/schedosdk.svg)](https://npmjs.org/package/schedosdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/schedosdk)
+[![NPM version](https://img.shields.io/npm/v/@useschedo/node-sdk.svg)](https://npmjs.org/package/@useschedo/node-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@useschedo/node-sdk)
 
-This library provides convenient access to the Schedosdk REST API from server-side TypeScript or JavaScript.
+This library provides convenient access to the Schedo REST API from server-side TypeScript or JavaScript.
 
-The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.schedo.dev](https://docs.schedo.dev). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainless.com/).
 
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:stainless-sdks/schedosdk-typescript.git
+npm install @useschedo/node-sdk
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://app.stainless.com/docs/guides/publish), this will become: `npm install schedosdk`
 
 ## Usage
 
@@ -23,14 +20,16 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import Schedosdk from 'schedosdk';
+import Schedo from '@useschedo/node-sdk';
 
-const client = new Schedosdk({
-  apiKey: process.env['SCHEDOSDK_API_KEY'], // This is the default and can be omitted
+const client = new Schedo({
+  apiKey: process.env['SCHEDO_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {
-  const apikeys = await client.apikeys.list({ 'X-API-ENVIRONMENT': 0 });
+  const apiKey = await client.apikeys.create({ environment_id: 1, name: 'First ApiKey' });
+
+  console.log(apiKey.id);
 }
 
 main();
@@ -42,15 +41,15 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import Schedosdk from 'schedosdk';
+import Schedo from '@useschedo/node-sdk';
 
-const client = new Schedosdk({
-  apiKey: process.env['SCHEDOSDK_API_KEY'], // This is the default and can be omitted
+const client = new Schedo({
+  apiKey: process.env['SCHEDO_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {
-  const params: Schedosdk.ApikeyListParams = { 'X-API-ENVIRONMENT': 0 };
-  const apikeys: Schedosdk.ApikeyListResponse = await client.apikeys.list(params);
+  const params: Schedo.ApikeyCreateParams = { environment_id: 1, name: 'First ApiKey' };
+  const apiKey: Schedo.APIKey = await client.apikeys.create(params);
 }
 
 main();
@@ -67,15 +66,17 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const apikeys = await client.apikeys.list({ 'X-API-ENVIRONMENT': 0 }).catch(async (err) => {
-    if (err instanceof Schedosdk.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+  const apiKey = await client.apikeys
+    .create({ environment_id: 1, name: 'First ApiKey' })
+    .catch(async (err) => {
+      if (err instanceof Schedo.APIError) {
+        console.log(err.status); // 400
+        console.log(err.name); // BadRequestError
+        console.log(err.headers); // {server: 'nginx', ...}
+      } else {
+        throw err;
+      }
+    });
 }
 
 main();
@@ -105,12 +106,12 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const client = new Schedosdk({
+const client = new Schedo({
   maxRetries: 0, // default is 2
 });
 
 // Or, configure per-request:
-await client.apikeys.list({ 'X-API-ENVIRONMENT': 0 }, {
+await client.apikeys.create({ environment_id: 1, name: 'First ApiKey' }, {
   maxRetries: 5,
 });
 ```
@@ -122,12 +123,12 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const client = new Schedosdk({
+const client = new Schedo({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
 // Override per-request:
-await client.apikeys.list({ 'X-API-ENVIRONMENT': 0 }, {
+await client.apikeys.create({ environment_id: 1, name: 'First ApiKey' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -148,15 +149,17 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 
 <!-- prettier-ignore -->
 ```ts
-const client = new Schedosdk();
+const client = new Schedo();
 
-const response = await client.apikeys.list({ 'X-API-ENVIRONMENT': 0 }).asResponse();
+const response = await client.apikeys.create({ environment_id: 1, name: 'First ApiKey' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: apikeys, response: raw } = await client.apikeys.list({ 'X-API-ENVIRONMENT': 0 }).withResponse();
+const { data: apiKey, response: raw } = await client.apikeys
+  .create({ environment_id: 1, name: 'First ApiKey' })
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(apikeys);
+console.log(apiKey.id);
 ```
 
 ### Logging
@@ -169,13 +172,13 @@ console.log(apikeys);
 
 The log level can be configured in two ways:
 
-1. Via the `SCHEDOSDK_LOG` environment variable
+1. Via the `SCHEDO_LOG` environment variable
 2. Using the `logLevel` client option (overrides the environment variable if set)
 
 ```ts
-import Schedosdk from 'schedosdk';
+import Schedo from '@useschedo/node-sdk';
 
-const client = new Schedosdk({
+const client = new Schedo({
   logLevel: 'debug', // Show all log messages
 });
 ```
@@ -201,13 +204,13 @@ When providing a custom logger, the `logLevel` option still controls which messa
 below the configured level will not be sent to your logger.
 
 ```ts
-import Schedosdk from 'schedosdk';
+import Schedo from '@useschedo/node-sdk';
 import pino from 'pino';
 
 const logger = pino();
 
-const client = new Schedosdk({
-  logger: logger.child({ name: 'Schedosdk' }),
+const client = new Schedo({
+  logger: logger.child({ name: 'Schedo' }),
   logLevel: 'debug', // Send all messages to pino, allowing it to filter
 });
 ```
@@ -271,10 +274,10 @@ globalThis.fetch = fetch;
 Or pass it to the client:
 
 ```ts
-import Schedosdk from 'schedosdk';
+import Schedo from '@useschedo/node-sdk';
 import fetch from 'my-fetch';
 
-const client = new Schedosdk({ fetch });
+const client = new Schedo({ fetch });
 ```
 
 ### Fetch options
@@ -282,9 +285,9 @@ const client = new Schedosdk({ fetch });
 If you want to set custom `fetch` options without overriding the `fetch` function, you can provide a `fetchOptions` object when instantiating the client or making a request. (Request-specific options override client options.)
 
 ```ts
-import Schedosdk from 'schedosdk';
+import Schedo from '@useschedo/node-sdk';
 
-const client = new Schedosdk({
+const client = new Schedo({
   fetchOptions: {
     // `RequestInit` options
   },
@@ -299,11 +302,11 @@ options to requests:
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg" align="top" width="18" height="21"> **Node** <sup>[[docs](https://github.com/nodejs/undici/blob/main/docs/docs/api/ProxyAgent.md#example---proxyagent-with-fetch)]</sup>
 
 ```ts
-import Schedosdk from 'schedosdk';
+import Schedo from '@useschedo/node-sdk';
 import * as undici from 'undici';
 
 const proxyAgent = new undici.ProxyAgent('http://localhost:8888');
-const client = new Schedosdk({
+const client = new Schedo({
   fetchOptions: {
     dispatcher: proxyAgent,
   },
@@ -313,9 +316,9 @@ const client = new Schedosdk({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg" align="top" width="18" height="21"> **Bun** <sup>[[docs](https://bun.sh/guides/http/proxy)]</sup>
 
 ```ts
-import Schedosdk from 'schedosdk';
+import Schedo from '@useschedo/node-sdk';
 
-const client = new Schedosdk({
+const client = new Schedo({
   fetchOptions: {
     proxy: 'http://localhost:8888',
   },
@@ -325,10 +328,10 @@ const client = new Schedosdk({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
 
 ```ts
-import Schedosdk from 'npm:schedosdk';
+import Schedo from 'npm:@useschedo/node-sdk';
 
 const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
-const client = new Schedosdk({
+const client = new Schedo({
   fetchOptions: {
     client: httpClient,
   },
@@ -347,7 +350,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/schedosdk-typescript/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/useschedo/node-typescript-sdk2/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
