@@ -2,6 +2,7 @@
 
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
+import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
@@ -16,8 +17,12 @@ export class Apikeys extends APIResource {
   /**
    * Returns a list of API Keys for the organization
    */
-  list(options?: RequestOptions): APIPromise<ApikeyListResponse> {
-    return this._client.get('/apikeys', options);
+  list(params: ApikeyListParams, options?: RequestOptions): APIPromise<ApikeyListResponse> {
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.get('/apikeys', {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
   }
 
   /**
@@ -88,6 +93,13 @@ export interface ApikeyCreateParams {
   name: string;
 }
 
+export interface ApikeyListParams {
+  /**
+   * 1
+   */
+  'X-API-ENVIRONMENT': number;
+}
+
 export declare namespace Apikeys {
   export {
     type APIKey as APIKey,
@@ -95,5 +107,6 @@ export declare namespace Apikeys {
     type ApikeyListResponse as ApikeyListResponse,
     type ApikeyRevokeResponse as ApikeyRevokeResponse,
     type ApikeyCreateParams as ApikeyCreateParams,
+    type ApikeyListParams as ApikeyListParams,
   };
 }
