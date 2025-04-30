@@ -1,6 +1,6 @@
 {
   "name": "@useschedo/node-sdk",
-  "version": "0.1.0-alpha.11",
+  "version": "0.1.0-alpha.12",
   "description": "The official TypeScript library for the Schedo API",
   "author": "Schedo <dev-feedback@schedo.dev>",
   "types": "dist/index.d.ts",
