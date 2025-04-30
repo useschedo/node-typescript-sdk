@@ -32,15 +32,19 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/jobs.ts">Job</a></code>
+- <code><a href="./src/resources/jobs.ts">JobInList</a></code>
 - <code><a href="./src/resources/jobs.ts">Output</a></code>
 - <code><a href="./src/resources/jobs.ts">JobDeleteResponse</a></code>
+- <code><a href="./src/resources/jobs.ts">JobListFullResponse</a></code>
 
 Methods:
 
 - <code title="get /jobs/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">retrieve</a>(jobID, { ...params }) -> Output</code>
 - <code title="get /jobs">client.jobs.<a href="./src/resources/jobs.ts">list</a>({ ...params }) -> Job</code>
 - <code title="delete /jobs/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">delete</a>(jobID, { ...params }) -> string</code>
+- <code title="get /jobs/{jobId}/connections/count">client.jobs.<a href="./src/resources/jobs.ts">connectionsCount</a>(jobID) -> void</code>
 - <code title="post /jobs/definition">client.jobs.<a href="./src/resources/jobs.ts">define</a>({ ...params }) -> Job</code>
+- <code title="get /jobs/list">client.jobs.<a href="./src/resources/jobs.ts">listFull</a>({ ...params }) -> JobListFullResponse</code>
 - <code title="patch /jobs/mute/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">mute</a>(jobID, { ...params }) -> Job</code>
 - <code title="patch /jobs/pause/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">pause</a>(jobID, { ...params }) -> JobExecution</code>
 - <code title="patch /jobs/resume/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">resume</a>(jobID, { ...params }) -> JobExecution</code>
@@ -53,13 +57,11 @@ Types:
 - <code><a href="./src/resources/job-execution.ts">JobExecution</a></code>
 - <code><a href="./src/resources/job-execution.ts">JobExecutionFrame</a></code>
 - <code><a href="./src/resources/job-execution.ts">JobExecutionListResponse</a></code>
-- <code><a href="./src/resources/job-execution.ts">JobExecutionPollResponse</a></code>
 
 Methods:
 
 - <code title="get /jobs/executions/{jobId}">client.jobExecution.<a href="./src/resources/job-execution.ts">list</a>(jobID, { ...params }) -> JobExecutionListResponse</code>
 - <code title="post /jobs/executions/complete/{executionId}">client.jobExecution.<a href="./src/resources/job-execution.ts">complete</a>(executionID, { ...params }) -> JobExecution</code>
-- <code title="get /jobs/executions">client.jobExecution.<a href="./src/resources/job-execution.ts">poll</a>() -> JobExecutionPollResponse</code>
 
 # Org
 

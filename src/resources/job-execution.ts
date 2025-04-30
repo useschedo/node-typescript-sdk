@@ -33,13 +33,6 @@ export class JobExecutionResource extends APIResource {
   ): APIPromise<JobExecution> {
     return this._client.post(path`/jobs/executions/complete/${executionID}`, { body, ...options });
   }
-
-  /**
-   * Returns list of jobs that must be executed
-   */
-  poll(options?: RequestOptions): APIPromise<JobExecutionPollResponse> {
-    return this._client.get('/jobs/executions', options);
-  }
 }
 
 export interface JobExecution {
@@ -150,8 +143,6 @@ export interface JobExecutionFrame {
 
 export type JobExecutionListResponse = Array<JobExecutionFrame>;
 
-export type JobExecutionPollResponse = Array<JobExecution>;
-
 export interface JobExecutionListParams {
   /**
    * Header param: 1
@@ -186,7 +177,6 @@ export declare namespace JobExecutionResource {
     type JobExecution as JobExecution,
     type JobExecutionFrame as JobExecutionFrame,
     type JobExecutionListResponse as JobExecutionListResponse,
-    type JobExecutionPollResponse as JobExecutionPollResponse,
     type JobExecutionListParams as JobExecutionListParams,
     type JobExecutionCompleteParams as JobExecutionCompleteParams,
   };

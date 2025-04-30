@@ -42,7 +42,6 @@ import {
   JobExecutionFrame,
   JobExecutionListParams,
   JobExecutionListResponse,
-  JobExecutionPollResponse,
   JobExecutionResource,
 } from './resources/job-execution';
 import {
@@ -50,6 +49,9 @@ import {
   JobDefineParams,
   JobDeleteParams,
   JobDeleteResponse,
+  JobInList,
+  JobListFullParams,
+  JobListFullResponse,
   JobListParams,
   JobMuteParams,
   JobPauseParams,
@@ -758,12 +760,15 @@ export declare namespace Schedo {
   export {
     Jobs as Jobs,
     type Job as Job,
+    type JobInList as JobInList,
     type Output as Output,
     type JobDeleteResponse as JobDeleteResponse,
+    type JobListFullResponse as JobListFullResponse,
     type JobRetrieveParams as JobRetrieveParams,
     type JobListParams as JobListParams,
     type JobDeleteParams as JobDeleteParams,
     type JobDefineParams as JobDefineParams,
+    type JobListFullParams as JobListFullParams,
     type JobMuteParams as JobMuteParams,
     type JobPauseParams as JobPauseParams,
     type JobResumeParams as JobResumeParams,
@@ -775,7 +780,6 @@ export declare namespace Schedo {
     type JobExecution as JobExecution,
     type JobExecutionFrame as JobExecutionFrame,
     type JobExecutionListResponse as JobExecutionListResponse,
-    type JobExecutionPollResponse as JobExecutionPollResponse,
     type JobExecutionListParams as JobExecutionListParams,
     type JobExecutionCompleteParams as JobExecutionCompleteParams,
   };
