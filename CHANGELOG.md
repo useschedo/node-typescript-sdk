@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2025-04-29)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.11](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.11)
+
+### Chores
+
+* **internal:** refactor utils ([a50f09f](https://github.com/useschedo/node-typescript-sdk/commit/a50f09ff4231b66c54852869c72f14c37ae67c62))
+
 ## 0.1.0-alpha.2 (2025-04-24)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
