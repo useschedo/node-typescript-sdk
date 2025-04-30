@@ -44,10 +44,31 @@ export class Jobs extends APIResource {
   }
 
   /**
+   * Retrieves a number of active connections for a job
+   */
+  connectionsCount(jobID: number, options?: RequestOptions): APIPromise<void> {
+    return this._client.get(path`/jobs/${jobID}/connections/count`, {
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
+  }
+
+  /**
    * Tries to create a new Job Definition
    */
   define(body: JobDefineParams, options?: RequestOptions): APIPromise<Job> {
     return this._client.post('/jobs/definition', { body, ...options });
+  }
+
+  /**
+   * List all jobs
+   */
+  listFull(params: JobListFullParams, options?: RequestOptions): APIPromise<JobListFullResponse> {
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
+    return this._client.get('/jobs/list', {
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
   }
 
   /**
@@ -205,13 +226,23 @@ export interface Job {
   updated_at?: string;
 }
 
+export interface JobInList {
+  connections_count?: number;
+
+  job?: Job;
+}
+
 export interface Output {
+  connections_count?: number;
+
   job?: Job;
 
   last_run?: JobExecutionAPI.JobExecution;
 }
 
 export type JobDeleteResponse = string;
+
+export type JobListFullResponse = Array<JobInList>;
 
 export interface JobRetrieveParams {
   /**
@@ -244,6 +275,13 @@ export interface JobDefineParams {
   metadata?: Record<string, unknown>;
 
   timeout_seconds?: number;
+}
+
+export interface JobListFullParams {
+  /**
+   * 1
+   */
+  'X-API-ENVIRONMENT': number;
 }
 
 export interface JobMuteParams {
@@ -282,12 +320,15 @@ export interface JobTriggerParams {
 export declare namespace Jobs {
   export {
     type Job as Job,
+    type JobInList as JobInList,
     type Output as Output,
     type JobDeleteResponse as JobDeleteResponse,
+    type JobListFullResponse as JobListFullResponse,
     type JobRetrieveParams as JobRetrieveParams,
     type JobListParams as JobListParams,
     type JobDeleteParams as JobDeleteParams,
     type JobDefineParams as JobDefineParams,
+    type JobListFullParams as JobListFullParams,
     type JobMuteParams as JobMuteParams,
     type JobPauseParams as JobPauseParams,
     type JobResumeParams as JobResumeParams,
