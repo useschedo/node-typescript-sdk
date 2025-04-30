@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.13 (2025-04-30)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Chores
+
+* update SDK settings ([a486e6e](https://github.com/useschedo/node-typescript-sdk/commit/a486e6ed3a1b48eb433f0ce8a72d103b51ffe190))
+
 ## 0.1.0-alpha.12 (2025-04-30)
 
 Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
