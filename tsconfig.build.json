@@ -6,7 +6,7 @@
     "rootDir": "./dist/src",
     "paths": {
       "@useschedo/node-sdk/*": ["dist/src/*"],
-      "@useschedo/node-sdk": ["dist/src/index.ts"],
+      "@useschedo/node-sdk": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
