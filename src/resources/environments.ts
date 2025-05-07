@@ -9,6 +9,13 @@ import { path } from '../internal/utils/path';
 export class Environments extends APIResource {
   /**
    * Creates a new org environment
+   *
+   * @example
+   * ```ts
+   * const environment = await client.environments.create({
+   *   name: 'Name of your environment',
+   * });
+   * ```
    */
   create(body: EnvironmentCreateParams, options?: RequestOptions): APIPromise<Environment> {
     return this._client.post('/org/environments', { body, ...options });
@@ -16,6 +23,11 @@ export class Environments extends APIResource {
 
   /**
    * Retrieves a list of environments for the current org
+   *
+   * @example
+   * ```ts
+   * const environments = await client.environments.list();
+   * ```
    */
   list(options?: RequestOptions): APIPromise<EnvironmentListResponse> {
     return this._client.get('/org/environments', options);
@@ -23,6 +35,11 @@ export class Environments extends APIResource {
 
   /**
    * Deletes an org environment
+   *
+   * @example
+   * ```ts
+   * const environment = await client.environments.delete(0);
+   * ```
    */
   delete(id: number, options?: RequestOptions): APIPromise<Environment> {
     return this._client.delete(path`/org/environments/${id}`, options);

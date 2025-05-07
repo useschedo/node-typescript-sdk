@@ -10,6 +10,13 @@ import { path } from '../internal/utils/path';
 export class Jobs extends APIResource {
   /**
    * Retrieve a job by its ID
+   *
+   * @example
+   * ```ts
+   * const output = await client.jobs.retrieve(0, {
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
    */
   retrieve(jobID: number, params: JobRetrieveParams, options?: RequestOptions): APIPromise<Output> {
     const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
@@ -21,6 +28,13 @@ export class Jobs extends APIResource {
 
   /**
    * List all jobs
+   *
+   * @example
+   * ```ts
+   * const job = await client.jobs.list({
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
    */
   list(params: JobListParams, options?: RequestOptions): APIPromise<Job> {
     const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
@@ -34,6 +48,13 @@ export class Jobs extends APIResource {
    * After you delete a job, you can't recover it, but if you have services still
    * running with that job reference, they will re-create and re-schedule a new job
    * automatically.
+   *
+   * @example
+   * ```ts
+   * const job = await client.jobs.delete(0, {
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
    */
   delete(jobID: number, params: JobDeleteParams, options?: RequestOptions): APIPromise<string> {
     const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
@@ -45,6 +66,11 @@ export class Jobs extends APIResource {
 
   /**
    * Retrieves a number of active connections for a job
+   *
+   * @example
+   * ```ts
+   * await client.jobs.connectionsCount(0);
+   * ```
    */
   connectionsCount(jobID: number, options?: RequestOptions): APIPromise<void> {
     return this._client.get(path`/jobs/${jobID}/connections/count`, {
@@ -55,6 +81,14 @@ export class Jobs extends APIResource {
 
   /**
    * Tries to create a new Job Definition
+   *
+   * @example
+   * ```ts
+   * const job = await client.jobs.define({
+   *   name: 'Name of your job',
+   *   schedule: '0 0 * * *',
+   * });
+   * ```
    */
   define(body: JobDefineParams, options?: RequestOptions): APIPromise<Job> {
     return this._client.post('/jobs/definition', { body, ...options });
@@ -62,6 +96,13 @@ export class Jobs extends APIResource {
 
   /**
    * List all jobs
+   *
+   * @example
+   * ```ts
+   * const jobInLists = await client.jobs.listFull({
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
    */
   listFull(params: JobListFullParams, options?: RequestOptions): APIPromise<JobListFullResponse> {
     const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
@@ -73,6 +114,13 @@ export class Jobs extends APIResource {
 
   /**
    * Update a job's muted status
+   *
+   * @example
+   * ```ts
+   * const job = await client.jobs.mute(0, {
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
    */
   mute(jobID: number, params: JobMuteParams, options?: RequestOptions): APIPromise<Job> {
     const { 'X-API-ENVIRONMENT': xAPIEnvironment, ...body } = params;
@@ -85,6 +133,13 @@ export class Jobs extends APIResource {
 
   /**
    * Temporary stops a job from running
+   *
+   * @example
+   * ```ts
+   * const jobExecution = await client.jobs.pause(0, {
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
    */
   pause(
     jobID: number,
@@ -100,6 +155,13 @@ export class Jobs extends APIResource {
 
   /**
    * Resumes job execution
+   *
+   * @example
+   * ```ts
+   * const jobExecution = await client.jobs.resume(0, {
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
    */
   resume(
     jobID: number,
@@ -115,6 +177,13 @@ export class Jobs extends APIResource {
 
   /**
    * Immediately triggers a job
+   *
+   * @example
+   * ```ts
+   * const jobExecution = await client.jobs.trigger(0, {
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
    */
   trigger(
     jobID: number,
