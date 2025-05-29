@@ -9,6 +9,14 @@ import { path } from '../internal/utils/path';
 export class JobExecutionResource extends APIResource {
   /**
    * Returns a list of executions for a job
+   *
+   * @example
+   * ```ts
+   * const jobExecutionFrames = await client.jobExecution.list(
+   *   0,
+   *   { 'X-API-ENVIRONMENT': 0 },
+   * );
+   * ```
    */
   list(
     jobID: number,
@@ -25,6 +33,13 @@ export class JobExecutionResource extends APIResource {
 
   /**
    * Marks pending job execution as complete
+   *
+   * @example
+   * ```ts
+   * const jobExecution = await client.jobExecution.complete(0, {
+   *   success: true,
+   * });
+   * ```
    */
   complete(
     executionID: number,

@@ -9,6 +9,14 @@ import { path } from '../internal/utils/path';
 export class Apikeys extends APIResource {
   /**
    * Generates a new API Key to access Schedo.dev API
+   *
+   * @example
+   * ```ts
+   * const apiKey = await client.apikeys.create({
+   *   environment_id: 1,
+   *   name: 'First ApiKey',
+   * });
+   * ```
    */
   create(body: ApikeyCreateParams, options?: RequestOptions): APIPromise<APIKey> {
     return this._client.post('/apikeys', { body, ...options });
@@ -16,6 +24,13 @@ export class Apikeys extends APIResource {
 
   /**
    * Returns a list of API Keys for the organization
+   *
+   * @example
+   * ```ts
+   * const apikeys = await client.apikeys.list({
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
    */
   list(params: ApikeyListParams, options?: RequestOptions): APIPromise<ApikeyListResponse> {
     const { 'X-API-ENVIRONMENT': xAPIEnvironment } = params;
@@ -27,6 +42,11 @@ export class Apikeys extends APIResource {
 
   /**
    * Revokes an API Key making it inactive
+   *
+   * @example
+   * ```ts
+   * const response = await client.apikeys.revoke(0);
+   * ```
    */
   revoke(id: number, options?: RequestOptions): APIPromise<ApikeyRevokeResponse> {
     return this._client.delete(path`/apikeys/revoke/${id}`, options);
