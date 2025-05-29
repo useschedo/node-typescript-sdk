@@ -44,6 +44,7 @@ Methods:
 - <code title="delete /jobs/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">delete</a>(jobID, { ...params }) -> string</code>
 - <code title="get /jobs/{jobId}/connections/count">client.jobs.<a href="./src/resources/jobs.ts">connectionsCount</a>(jobID) -> void</code>
 - <code title="post /jobs/definition">client.jobs.<a href="./src/resources/jobs.ts">define</a>({ ...params }) -> Job</code>
+- <code title="post /jobs/definition/internal">client.jobs.<a href="./src/resources/jobs.ts">defineInternal</a>({ ...params }) -> Job</code>
 - <code title="get /jobs/list">client.jobs.<a href="./src/resources/jobs.ts">listFull</a>({ ...params }) -> JobListFullResponse</code>
 - <code title="patch /jobs/mute/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">mute</a>(jobID, { ...params }) -> Job</code>
 - <code title="patch /jobs/pause/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">pause</a>(jobID, { ...params }) -> JobExecution</code>

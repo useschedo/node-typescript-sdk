@@ -96,6 +96,30 @@ describe('resource jobs', () => {
   });
 
   // skipped: tests are disabled for the time being
+  test.skip('defineInternal: only required params', async () => {
+    const responsePromise = client.jobs.defineInternal({ name: 'Name of your job', schedule: '0 0 * * *' });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('defineInternal: required and optional params', async () => {
+    const response = await client.jobs.defineInternal({
+      name: 'Name of your job',
+      schedule: '0 0 * * *',
+      blocking: true,
+      metadata: { foo: 'bar' },
+      timeout_seconds: 0,
+      webhook_url: 'https://example.com/webhook',
+    });
+  });
+
+  // skipped: tests are disabled for the time being
   test.skip('listFull: only required params', async () => {
     const responsePromise = client.jobs.listFull({ 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
