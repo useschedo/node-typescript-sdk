@@ -290,9 +290,19 @@ export interface Job {
   timeout_seconds?: number;
 
   /**
+   * Type of job (push, sdk, etc.)
+   */
+  type?: 'sdk' | 'push';
+
+  /**
    * Time when the job was last updated
    */
   updated_at?: string;
+
+  /**
+   * A webhook url to triggen on job exection
+   */
+  webhook_url?: string;
 }
 
 export interface JobInList {
@@ -344,6 +354,8 @@ export interface JobDefineParams {
   metadata?: Record<string, unknown>;
 
   timeout_seconds?: number;
+
+  webhook_url?: string;
 }
 
 export interface JobListFullParams {
