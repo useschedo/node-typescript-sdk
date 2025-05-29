@@ -91,6 +91,7 @@ describe('resource jobs', () => {
       blocking: true,
       metadata: { foo: 'bar' },
       timeout_seconds: 0,
+      webhook_url: 'https://example.com/webhook',
     });
   });
 
