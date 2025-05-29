@@ -95,6 +95,21 @@ export class Jobs extends APIResource {
   }
 
   /**
+   * Tries to create a new Internal Job Definition
+   *
+   * @example
+   * ```ts
+   * const job = await client.jobs.defineInternal({
+   *   name: 'Name of your job',
+   *   schedule: '0 0 * * *',
+   * });
+   * ```
+   */
+  defineInternal(body: JobDefineInternalParams, options?: RequestOptions): APIPromise<Job> {
+    return this._client.post('/jobs/definition/internal', { body, ...options });
+  }
+
+  /**
    * List all jobs
    *
    * @example
@@ -358,6 +373,20 @@ export interface JobDefineParams {
   webhook_url?: string;
 }
 
+export interface JobDefineInternalParams {
+  name: string;
+
+  schedule: string;
+
+  blocking?: boolean;
+
+  metadata?: Record<string, unknown>;
+
+  timeout_seconds?: number;
+
+  webhook_url?: string;
+}
+
 export interface JobListFullParams {
   /**
    * 1
@@ -409,6 +438,7 @@ export declare namespace Jobs {
     type JobListParams as JobListParams,
     type JobDeleteParams as JobDeleteParams,
     type JobDefineParams as JobDefineParams,
+    type JobDefineInternalParams as JobDefineInternalParams,
     type JobListFullParams as JobListFullParams,
     type JobMuteParams as JobMuteParams,
     type JobPauseParams as JobPauseParams,

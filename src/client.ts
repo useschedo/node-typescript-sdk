@@ -46,6 +46,7 @@ import {
 } from './resources/job-execution';
 import {
   Job,
+  JobDefineInternalParams,
   JobDefineParams,
   JobDeleteParams,
   JobDeleteResponse,
@@ -785,6 +786,7 @@ export declare namespace Schedo {
     type JobListParams as JobListParams,
     type JobDeleteParams as JobDeleteParams,
     type JobDefineParams as JobDefineParams,
+    type JobDefineInternalParams as JobDefineInternalParams,
     type JobListFullParams as JobListFullParams,
     type JobMuteParams as JobMuteParams,
     type JobPauseParams as JobPauseParams,
