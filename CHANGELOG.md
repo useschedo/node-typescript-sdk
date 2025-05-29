@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.46 (2025-05-29)
+
+Full Changelog: [v0.1.0-alpha.45...v0.1.0-alpha.46](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.45...v0.1.0-alpha.46)
+
+### Chores
+
+* **internal:** version bump ([e2cdfbf](https://github.com/useschedo/node-typescript-sdk/commit/e2cdfbf59c585a05ad5829370d9a80497953f60d))
+
 ## 0.1.0-alpha.45 (2025-05-29)
 
 Full Changelog: [v0.1.0-alpha.44...v0.1.0-alpha.45](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.44...v0.1.0-alpha.45)
