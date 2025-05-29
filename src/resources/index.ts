@@ -35,6 +35,7 @@ export {
   type JobListParams,
   type JobDeleteParams,
   type JobDefineParams,
+  type JobDefineInternalParams,
   type JobListFullParams,
   type JobMuteParams,
   type JobPauseParams,
