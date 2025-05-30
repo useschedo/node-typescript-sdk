@@ -21,4 +21,4 @@ export {
   UnprocessableEntityError,
 } from './core/error';
 
-export { SignatureVerifier } from './signature';
+export { SignatureVerifier, SignatureUtils } from './signature';

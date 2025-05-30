@@ -117,4 +117,4 @@ export const SignatureUtils = {
   },
 };
 
-export default SignatureVerifier;
+// Note: No default export to ensure ESM/CJS compatibility
