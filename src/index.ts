@@ -20,3 +20,5 @@ export {
   PermissionDeniedError,
   UnprocessableEntityError,
 } from './core/error';
+
+export { SignatureVerifier } from './signature';
