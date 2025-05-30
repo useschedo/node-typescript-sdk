@@ -72,6 +72,11 @@ export interface Environment {
    * OrganizationID holds the value of the "organization_id" field.
    */
   organization_id?: number;
+
+  /**
+   * A webhook signature key to validate incoming requests
+   */
+  webhook_signature_key?: string;
 }
 
 export interface EnvironmentEdges {
