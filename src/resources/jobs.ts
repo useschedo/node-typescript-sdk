@@ -211,6 +211,25 @@ export class Jobs extends APIResource {
       headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
     });
   }
+
+  /**
+   * Update a job's webhook URL
+   *
+   * @example
+   * ```ts
+   * const job = await client.jobs.updateWebhook(0, {
+   *   'X-API-ENVIRONMENT': 0,
+   * });
+   * ```
+   */
+  updateWebhook(jobID: number, params: JobUpdateWebhookParams, options?: RequestOptions): APIPromise<Job> {
+    const { 'X-API-ENVIRONMENT': xAPIEnvironment, ...body } = params;
+    return this._client.patch(path`/jobs/webhook/${jobID}`, {
+      body,
+      ...options,
+      headers: buildHeaders([{ 'X-API-ENVIRONMENT': xAPIEnvironment.toString() }, options?.headers]),
+    });
+  }
 }
 
 export interface Job {
@@ -427,6 +446,18 @@ export interface JobTriggerParams {
   'X-API-ENVIRONMENT': number;
 }
 
+export interface JobUpdateWebhookParams {
+  /**
+   * Header param: 1
+   */
+  'X-API-ENVIRONMENT': number;
+
+  /**
+   * Body param:
+   */
+  webhook_url?: string;
+}
+
 export declare namespace Jobs {
   export {
     type Job as Job,
@@ -444,5 +475,6 @@ export declare namespace Jobs {
     type JobPauseParams as JobPauseParams,
     type JobResumeParams as JobResumeParams,
     type JobTriggerParams as JobTriggerParams,
+    type JobUpdateWebhookParams as JobUpdateWebhookParams,
   };
 }

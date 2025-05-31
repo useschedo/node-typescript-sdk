@@ -59,6 +59,7 @@ import {
   JobResumeParams,
   JobRetrieveParams,
   JobTriggerParams,
+  JobUpdateWebhookParams,
   Jobs,
   Output,
 } from './resources/jobs';
@@ -792,6 +793,7 @@ export declare namespace Schedo {
     type JobPauseParams as JobPauseParams,
     type JobResumeParams as JobResumeParams,
     type JobTriggerParams as JobTriggerParams,
+    type JobUpdateWebhookParams as JobUpdateWebhookParams,
   };
 
   export {

@@ -41,6 +41,7 @@ export {
   type JobPauseParams,
   type JobResumeParams,
   type JobTriggerParams,
+  type JobUpdateWebhookParams,
 } from './jobs';
 export {
   OrgEmails,
