@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.50 (2025-05-31)
+
+Full Changelog: [v0.1.0-alpha.49...v0.1.0-alpha.50](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.49...v0.1.0-alpha.50)
+
+### Chores
+
+* **deps:** bump eslint-plugin-prettier ([c35d66a](https://github.com/useschedo/node-typescript-sdk/commit/c35d66a45be2dd21e0155340d16504570789eb8d))
+* **internal:** update jest config ([c41f542](https://github.com/useschedo/node-typescript-sdk/commit/c41f54220473e0a292ddf926e99d68431f786f64))
+
 ## 0.1.0-alpha.49 (2025-05-30)
 
 Full Changelog: [v0.1.0-alpha.48...v0.1.0-alpha.49](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.48...v0.1.0-alpha.49)
