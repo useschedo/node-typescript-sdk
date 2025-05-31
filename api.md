@@ -50,6 +50,7 @@ Methods:
 - <code title="patch /jobs/pause/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">pause</a>(jobID, { ...params }) -> JobExecution</code>
 - <code title="patch /jobs/resume/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">resume</a>(jobID, { ...params }) -> JobExecution</code>
 - <code title="post /jobs/trigger/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">trigger</a>(jobID, { ...params }) -> JobExecution</code>
+- <code title="patch /jobs/webhook/{jobId}">client.jobs.<a href="./src/resources/jobs.ts">updateWebhook</a>(jobID, { ...params }) -> Job</code>
 
 # JobExecution
 
