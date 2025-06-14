@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.52 (2025-06-14)
+
+Full Changelog: [v0.1.0-alpha.51...v0.1.0-alpha.52](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.51...v0.1.0-alpha.52)
+
+### Bug Fixes
+
+* publish script — handle NPM errors correctly ([85a9548](https://github.com/useschedo/node-typescript-sdk/commit/85a95485e03321ac916f3ee54c3145ef697cb469))
+
+
+### Chores
+
+* adjust eslint.config.mjs ignore pattern ([809d7ac](https://github.com/useschedo/node-typescript-sdk/commit/809d7ac40f3ef22b56de6bc096c22f55424de6bc))
+* avoid type error in certain environments ([9135e72](https://github.com/useschedo/node-typescript-sdk/commit/9135e7223c4f46c3d3fb4b53f7259c78df5c46bb))
+* **docs:** use top-level-await in example snippets ([244e556](https://github.com/useschedo/node-typescript-sdk/commit/244e55638be948f86dd873fa3ba1bf0ee2781f33))
+* **internal:** fix readablestream types in node 20 ([6cc8d99](https://github.com/useschedo/node-typescript-sdk/commit/6cc8d99ba7bf3aa9d7c26d2a45242b7469aa80f2))
+
 ## 0.1.0-alpha.51 (2025-05-31)
 
 Full Changelog: [v0.1.0-alpha.50...v0.1.0-alpha.51](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.50...v0.1.0-alpha.51)
