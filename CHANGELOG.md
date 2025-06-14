@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.53 (2025-06-14)
+
+Full Changelog: [v0.1.0-alpha.52...v0.1.0-alpha.53](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.52...v0.1.0-alpha.53)
+
+### Chores
+
+* **internal:** add pure annotations, make base APIResource abstract ([722c4b3](https://github.com/useschedo/node-typescript-sdk/commit/722c4b3a5e59b2477ecabce1fb40ff2c90ac106c))
+
 ## 0.1.0-alpha.52 (2025-06-14)
 
 Full Changelog: [v0.1.0-alpha.51...v0.1.0-alpha.52](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.51...v0.1.0-alpha.52)

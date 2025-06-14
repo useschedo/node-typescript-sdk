@@ -2,7 +2,7 @@
 
 import type { Schedo } from '../client';
 
-export class APIResource {
+export abstract class APIResource {
   protected _client: Schedo;
 
   constructor(client: Schedo) {
