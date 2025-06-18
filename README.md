@@ -1,6 +1,6 @@
 # Schedo TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/@useschedo/node-sdk.svg)](https://npmjs.org/package/@useschedo/node-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@useschedo/node-sdk)
+[![NPM version](<https://img.shields.io/npm/v/@useschedo/node-sdk.svg?label=npm%20(stable)>)](https://npmjs.org/package/@useschedo/node-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@useschedo/node-sdk)
 
 This library provides convenient access to the Schedo REST API from server-side TypeScript or JavaScript.
 
