@@ -281,7 +281,7 @@ export interface Job {
   /**
    * Additional metadata for the job
    */
-  metadata?: Record<string, unknown>;
+  metadata?: { [key: string]: unknown };
 
   /**
    * Whether notifications for this job are muted
@@ -385,7 +385,7 @@ export interface JobDefineParams {
 
   blocking?: boolean;
 
-  metadata?: Record<string, unknown>;
+  metadata?: { [key: string]: unknown };
 
   timeout_seconds?: number;
 
@@ -399,7 +399,7 @@ export interface JobDefineInternalParams {
 
   blocking?: boolean;
 
-  metadata?: Record<string, unknown>;
+  metadata?: { [key: string]: unknown };
 
   timeout_seconds?: number;
 
