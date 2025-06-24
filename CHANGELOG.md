@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.1.0-alpha.53 (2025-06-24)
+
+Full Changelog: [v0.1.0-alpha.52...v0.1.0-alpha.53](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.52...v0.1.0-alpha.53)
+
+### Features
+
+* **client:** add support for endpoint-specific base URLs ([2164e74](https://github.com/useschedo/node-typescript-sdk/commit/2164e748f597b227b0a048e5a4147a9dbe1575b4))
+
+
+### Bug Fixes
+
+* **client:** explicitly copy fetch in withOptions ([1a56661](https://github.com/useschedo/node-typescript-sdk/commit/1a56661ec69c53569ef112fc9bbd5adc593b9959))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([c48c0e1](https://github.com/useschedo/node-typescript-sdk/commit/c48c0e142ad25fa7b7154b5521e4db02ff7e5618))
+* **client:** refactor imports ([cc0535a](https://github.com/useschedo/node-typescript-sdk/commit/cc0535ab813d55d4e0ba3b182b863cd80e3b9d8d))
+* **internal:** add pure annotations, make base APIResource abstract ([722c4b3](https://github.com/useschedo/node-typescript-sdk/commit/722c4b3a5e59b2477ecabce1fb40ff2c90ac106c))
+* **readme:** update badges ([901f522](https://github.com/useschedo/node-typescript-sdk/commit/901f522cbf2effe9e4eb25a10cff5f137e29cd3f))
+* **readme:** use better example snippet for undocumented params ([a2f98a4](https://github.com/useschedo/node-typescript-sdk/commit/a2f98a4f97203d7b0d8780bb954c1ad4a59c5ed3))
+
+
+### Refactors
+
+* **types:** replace Record with mapped types ([1d7c0bf](https://github.com/useschedo/node-typescript-sdk/commit/1d7c0bfbfe7aa316cd3e69b11b04cd276fb84b3e))
+
 ## 0.1.0-alpha.52 (2025-06-14)
 
 Full Changelog: [v0.1.0-alpha.51...v0.1.0-alpha.52](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.51...v0.1.0-alpha.52)
