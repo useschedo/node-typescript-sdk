@@ -133,7 +133,7 @@ export interface JobExecutionFrame {
    */
   job_code?: string;
 
-  metadata?: Record<string, unknown>;
+  metadata?: { [key: string]: unknown };
 
   /**
    * Output of the executed command
