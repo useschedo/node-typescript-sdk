@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.55 (2025-06-27)
+
+Full Changelog: [v0.1.0-alpha.54...v0.1.0-alpha.55](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.54...v0.1.0-alpha.55)
+
+### Bug Fixes
+
+* **client:** get fetchOptions type more reliably ([c0d469d](https://github.com/useschedo/node-typescript-sdk/commit/c0d469dfa5a952c56bf39bb24296767bbd2ed719))
+
 ## 0.1.0-alpha.54 (2025-06-27)
 
 Full Changelog: [v0.1.0-alpha.53...v0.1.0-alpha.54](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.53...v0.1.0-alpha.54)
