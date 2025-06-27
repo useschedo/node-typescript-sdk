@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.54 (2025-06-27)
+
+Full Changelog: [v0.1.0-alpha.53...v0.1.0-alpha.54](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.53...v0.1.0-alpha.54)
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([0819d99](https://github.com/useschedo/node-typescript-sdk/commit/0819d995e1650fe8987d2c659345efdad63288f2))
+
 ## 0.1.0-alpha.53 (2025-06-24)
 
 Full Changelog: [v0.1.0-alpha.52...v0.1.0-alpha.53](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.52...v0.1.0-alpha.53)
