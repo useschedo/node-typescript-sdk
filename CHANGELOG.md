@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.56 (2025-06-28)
+
+Full Changelog: [v0.1.0-alpha.55...v0.1.0-alpha.56](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.55...v0.1.0-alpha.56)
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([9a93223](https://github.com/useschedo/node-typescript-sdk/commit/9a93223d329a8334a9b33268f0bb51bc84358f75))
+
 ## 0.1.0-alpha.55 (2025-06-27)
 
 Full Changelog: [v0.1.0-alpha.54...v0.1.0-alpha.55](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.54...v0.1.0-alpha.55)
