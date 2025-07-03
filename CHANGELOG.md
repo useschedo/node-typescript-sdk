@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.56 (2025-07-03)
+
+Full Changelog: [v0.1.0-alpha.55...v0.1.0-alpha.56](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.55...v0.1.0-alpha.56)
+
+### Chores
+
+* add docs to RequestOptions type ([44ea0dc](https://github.com/useschedo/node-typescript-sdk/commit/44ea0dca421204896bafe7edea148ca3a93c84bc))
+* **ci:** only run for pushes and fork pull requests ([9a93223](https://github.com/useschedo/node-typescript-sdk/commit/9a93223d329a8334a9b33268f0bb51bc84358f75))
+* **client:** improve path param validation ([6b36f96](https://github.com/useschedo/node-typescript-sdk/commit/6b36f96c4ecc463037b57cfdac9acee786a8ab65))
+
 ## 0.1.0-alpha.55 (2025-06-27)
 
 Full Changelog: [v0.1.0-alpha.54...v0.1.0-alpha.55](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.54...v0.1.0-alpha.55)
