@@ -22,9 +22,7 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Schedo from '@useschedo/node-sdk';
 
-const client = new Schedo({
-  apiKey: process.env['SCHEDO_API_KEY'], // This is the default and can be omitted
-});
+const client = new Schedo();
 
 const apiKey = await client.apikeys.create({ environment_id: 1, name: 'First ApiKey' });
 
@@ -39,9 +37,7 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Schedo from '@useschedo/node-sdk';
 
-const client = new Schedo({
-  apiKey: process.env['SCHEDO_API_KEY'], // This is the default and can be omitted
-});
+const client = new Schedo();
 
 const params: Schedo.ApikeyCreateParams = { environment_id: 1, name: 'First ApiKey' };
 const apiKey: Schedo.APIKey = await client.apikeys.create(params);
