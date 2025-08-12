@@ -8,7 +8,7 @@ const client = new Schedo({
 });
 
 describe('resource orgEmails', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.orgEmails.create({ body: 'body' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource orgEmails', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.orgEmails.create({ body: 'body' });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.orgEmails.list();
     const rawResponse = await responsePromise.asResponse();
@@ -37,7 +37,7 @@ describe('resource orgEmails', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('delete: only required params', async () => {
     const responsePromise = client.orgEmails.delete({ body: 'body' });
     const rawResponse = await responsePromise.asResponse();
@@ -49,7 +49,7 @@ describe('resource orgEmails', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('delete: required and optional params', async () => {
     const response = await client.orgEmails.delete({ body: 'body' });
   });
