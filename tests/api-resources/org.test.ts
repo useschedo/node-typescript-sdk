@@ -8,7 +8,7 @@ const client = new Schedo({
 });
 
 describe('resource org', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.org.retrieve();
     const rawResponse = await responsePromise.asResponse();
