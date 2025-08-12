@@ -8,7 +8,7 @@ const client = new Schedo({
 });
 
 describe('resource jobExecution', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.jobExecution.list(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource jobExecution', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.jobExecution.list(0, { 'X-API-ENVIRONMENT': 0, cursor: 0, limit: 0 });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('complete: only required params', async () => {
     const responsePromise = client.jobExecution.complete(0, { success: true });
     const rawResponse = await responsePromise.asResponse();
@@ -37,7 +37,7 @@ describe('resource jobExecution', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('complete: required and optional params', async () => {
     const response = await client.jobExecution.complete(0, {
       success: true,

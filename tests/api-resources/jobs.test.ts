@@ -8,7 +8,7 @@ const client = new Schedo({
 });
 
 describe('resource jobs', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve: only required params', async () => {
     const responsePromise = client.jobs.retrieve(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve: required and optional params', async () => {
     const response = await client.jobs.retrieve(0, { 'X-API-ENVIRONMENT': 0 });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.jobs.list({ 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -37,12 +37,12 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.jobs.list({ 'X-API-ENVIRONMENT': 0 });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('delete: only required params', async () => {
     const responsePromise = client.jobs.delete(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -54,12 +54,12 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('delete: required and optional params', async () => {
     const response = await client.jobs.delete(0, { 'X-API-ENVIRONMENT': 0 });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('connectionsCount', async () => {
     const responsePromise = client.jobs.connectionsCount(0);
     const rawResponse = await responsePromise.asResponse();
@@ -71,7 +71,7 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('define: only required params', async () => {
     const responsePromise = client.jobs.define({ name: 'Name of your job', schedule: '0 0 * * *' });
     const rawResponse = await responsePromise.asResponse();
@@ -83,7 +83,7 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('define: required and optional params', async () => {
     const response = await client.jobs.define({
       name: 'Name of your job',
@@ -95,7 +95,7 @@ describe('resource jobs', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('defineInternal: only required params', async () => {
     const responsePromise = client.jobs.defineInternal({ name: 'Name of your job', schedule: '0 0 * * *' });
     const rawResponse = await responsePromise.asResponse();
@@ -107,7 +107,7 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('defineInternal: required and optional params', async () => {
     const response = await client.jobs.defineInternal({
       name: 'Name of your job',
@@ -119,7 +119,7 @@ describe('resource jobs', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('listFull: only required params', async () => {
     const responsePromise = client.jobs.listFull({ 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -131,12 +131,12 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('listFull: required and optional params', async () => {
     const response = await client.jobs.listFull({ 'X-API-ENVIRONMENT': 0 });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('mute: only required params', async () => {
     const responsePromise = client.jobs.mute(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -148,12 +148,12 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('mute: required and optional params', async () => {
     const response = await client.jobs.mute(0, { 'X-API-ENVIRONMENT': 0, muted: true });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('pause: only required params', async () => {
     const responsePromise = client.jobs.pause(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -165,12 +165,12 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('pause: required and optional params', async () => {
     const response = await client.jobs.pause(0, { 'X-API-ENVIRONMENT': 0 });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('resume: only required params', async () => {
     const responsePromise = client.jobs.resume(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -182,12 +182,12 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('resume: required and optional params', async () => {
     const response = await client.jobs.resume(0, { 'X-API-ENVIRONMENT': 0 });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('trigger: only required params', async () => {
     const responsePromise = client.jobs.trigger(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -199,12 +199,12 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('trigger: required and optional params', async () => {
     const response = await client.jobs.trigger(0, { 'X-API-ENVIRONMENT': 0 });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('updateWebhook: only required params', async () => {
     const responsePromise = client.jobs.updateWebhook(0, { 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -216,7 +216,7 @@ describe('resource jobs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('updateWebhook: required and optional params', async () => {
     const response = await client.jobs.updateWebhook(0, {
       'X-API-ENVIRONMENT': 0,
