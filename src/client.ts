@@ -772,12 +772,14 @@ export class Schedo {
   org: API.OrgResource = new API.OrgResource(this);
   orgEmails: API.OrgEmails = new API.OrgEmails(this);
 }
+
 Schedo.Apikeys = Apikeys;
 Schedo.Environments = Environments;
 Schedo.Jobs = Jobs;
 Schedo.JobExecutionResource = JobExecutionResource;
 Schedo.OrgResource = OrgResource;
 Schedo.OrgEmails = OrgEmails;
+
 export declare namespace Schedo {
   export type RequestOptions = Opts.RequestOptions;
 
