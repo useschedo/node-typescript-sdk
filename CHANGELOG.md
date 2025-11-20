@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.1.0-alpha.56 (2025-11-20)
+
+Full Changelog: [v0.1.0-alpha.55...v0.1.0-alpha.56](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.55...v0.1.0-alpha.56)
+
+### Features
+
+* **api:** api update ([b08d146](https://github.com/useschedo/node-typescript-sdk/commit/b08d1460ad1fce33c8a894c20ad2b3a1bdb499ee))
+* clean up environment call outs ([30147f7](https://github.com/useschedo/node-typescript-sdk/commit/30147f731ae20222215547f50ad58227d4230924))
+* **mcp:** add code execution tool ([c42aa86](https://github.com/useschedo/node-typescript-sdk/commit/c42aa8694ee595cbed541ec375363b79035134ab))
+
+
+### Chores
+
+* add docs to RequestOptions type ([44ea0dc](https://github.com/useschedo/node-typescript-sdk/commit/44ea0dca421204896bafe7edea148ca3a93c84bc))
+* add package to package.json ([ec67a21](https://github.com/useschedo/node-typescript-sdk/commit/ec67a21237600803935bd5b2b993892e09c681c6))
+* **ci:** only run for pushes and fork pull requests ([9a93223](https://github.com/useschedo/node-typescript-sdk/commit/9a93223d329a8334a9b33268f0bb51bc84358f75))
+* **client:** improve path param validation ([6b36f96](https://github.com/useschedo/node-typescript-sdk/commit/6b36f96c4ecc463037b57cfdac9acee786a8ab65))
+* **client:** qualify global Blob ([31402e8](https://github.com/useschedo/node-typescript-sdk/commit/31402e8be707e17ffe52ef05e661a40b5669edec))
+* **deps:** update dependency @types/node to v20.17.58 ([f3ff630](https://github.com/useschedo/node-typescript-sdk/commit/f3ff630ac59f186cace31d6874923d83ad556d4e))
+* **internal:** codegen related update ([8d050b6](https://github.com/useschedo/node-typescript-sdk/commit/8d050b6fdfea1a2d074a4b067240ea61d97fc764))
+* **internal:** formatting change ([3d1f56c](https://github.com/useschedo/node-typescript-sdk/commit/3d1f56c4e4f36626a36edadd9a0f62e5ab640822))
+* **internal:** move publish config ([69d275d](https://github.com/useschedo/node-typescript-sdk/commit/69d275d63e361fdcfd7264b0177039dcbcae364d))
+* **internal:** remove redundant imports config ([2f2f9a5](https://github.com/useschedo/node-typescript-sdk/commit/2f2f9a513f02bcdd7f4badaa4dea34e3e6d48012))
+* **internal:** update comment in script ([d5a94e3](https://github.com/useschedo/node-typescript-sdk/commit/d5a94e3ba1e88ebd9c32a780dee42a7a79766d43))
+* make some internal functions async ([1507a05](https://github.com/useschedo/node-typescript-sdk/commit/1507a0540e0eed4f58c10a8592014d24841d0a7b))
+* **ts:** reorder package.json imports ([871d8b2](https://github.com/useschedo/node-typescript-sdk/commit/871d8b27dca87c784422a36f3a7e70136cbb3255))
+* update @stainless-api/prism-cli to v5.15.0 ([2bd5266](https://github.com/useschedo/node-typescript-sdk/commit/2bd52665a9823d7e37cad84d378741d52a61e659))
+* update CI script ([0b50ec2](https://github.com/useschedo/node-typescript-sdk/commit/0b50ec2a83b64ecac83bb05f75b2bb7b56cf94dd))
+
 ## 0.1.0-alpha.55 (2025-06-27)
 
 Full Changelog: [v0.1.0-alpha.54...v0.1.0-alpha.55](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.54...v0.1.0-alpha.55)
