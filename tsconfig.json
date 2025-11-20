@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "@useschedo/node-sdk/*": ["src/*"],
-      "@useschedo/node-sdk": ["src/index.ts"]
+      "@useschedo/node-sdk/*": ["./src/*"],
+      "@useschedo/node-sdk": ["./src/index.ts"]
     },
     "noEmit": true,
 
