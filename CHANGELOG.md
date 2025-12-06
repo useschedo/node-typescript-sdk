@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.58 (2025-12-06)
+
+Full Changelog: [v0.1.0-alpha.57...v0.1.0-alpha.58](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.57...v0.1.0-alpha.58)
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([ffec037](https://github.com/useschedo/node-typescript-sdk/commit/ffec0372a73168e0eee373525c6fa4e47d17446d))
+
+
+### Chores
+
+* **internal:** codegen related update ([b600233](https://github.com/useschedo/node-typescript-sdk/commit/b600233d480107e7cd40662bf600dfaed7e6b05b))
+
 ## 0.1.0-alpha.57 (2025-12-06)
 
 Full Changelog: [v0.1.0-alpha.56...v0.1.0-alpha.57](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.56...v0.1.0-alpha.57)
