@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.57 (2025-12-06)
+
+Full Changelog: [v0.1.0-alpha.56...v0.1.0-alpha.57](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.56...v0.1.0-alpha.57)
+
+### Bug Fixes
+
+* **mcp:** return correct lines on typescript errors ([ee1e55c](https://github.com/useschedo/node-typescript-sdk/commit/ee1e55cd6bf7905a83b04e7fee97f054096281f4))
+
+
+### Chores
+
+* **client:** fix logger property type ([ad8098d](https://github.com/useschedo/node-typescript-sdk/commit/ad8098d1bc7b9f64206063bb22995db37cd0e6be))
+* **internal:** codegen related update ([5c2a5e2](https://github.com/useschedo/node-typescript-sdk/commit/5c2a5e214213e58e70b8756ab09edbcc57c5cd03))
+* **internal:** upgrade eslint ([50a9462](https://github.com/useschedo/node-typescript-sdk/commit/50a94629cfea26892adc1b1bb9189b8c66345c2c))
+
 ## 0.1.0-alpha.56 (2025-11-20)
 
 Full Changelog: [v0.1.0-alpha.55...v0.1.0-alpha.56](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.55...v0.1.0-alpha.56)
