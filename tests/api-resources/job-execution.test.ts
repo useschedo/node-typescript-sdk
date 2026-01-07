@@ -22,7 +22,11 @@ describe('resource jobExecution', () => {
 
   // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
-    const response = await client.jobExecution.list(0, { 'X-API-ENVIRONMENT': 0, cursor: 0, limit: 0 });
+    const response = await client.jobExecution.list(0, {
+      'X-API-ENVIRONMENT': 0,
+      cursor: 0,
+      limit: 0,
+    });
   });
 
   // Prism tests are disabled

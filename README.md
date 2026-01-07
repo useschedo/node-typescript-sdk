@@ -53,15 +53,17 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const apiKey = await client.apikeys.create({ environment_id: 1, name: 'First ApiKey' }).catch(async (err) => {
-  if (err instanceof Schedo.APIError) {
-    console.log(err.status); // 400
-    console.log(err.name); // BadRequestError
-    console.log(err.headers); // {server: 'nginx', ...}
-  } else {
-    throw err;
-  }
-});
+const apiKey = await client.apikeys
+  .create({ environment_id: 1, name: 'First ApiKey' })
+  .catch(async (err) => {
+    if (err instanceof Schedo.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
@@ -133,7 +135,9 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Schedo();
 
-const response = await client.apikeys.create({ environment_id: 1, name: 'First ApiKey' }).asResponse();
+const response = await client.apikeys
+  .create({ environment_id: 1, name: 'First ApiKey' })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
