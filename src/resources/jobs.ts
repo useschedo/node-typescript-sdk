@@ -420,7 +420,7 @@ export interface JobMuteParams {
   'X-API-ENVIRONMENT': number;
 
   /**
-   * Body param:
+   * Body param
    */
   muted?: boolean;
 }
@@ -453,7 +453,7 @@ export interface JobUpdateWebhookParams {
   'X-API-ENVIRONMENT': number;
 
   /**
-   * Body param:
+   * Body param
    */
   webhook_url?: string;
 }
