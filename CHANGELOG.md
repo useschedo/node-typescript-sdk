@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.59 (2026-02-03)
+
+Full Changelog: [v0.1.0-alpha.58...v0.1.0-alpha.59](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.58...v0.1.0-alpha.59)
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([531264e](https://github.com/useschedo/node-typescript-sdk/commit/531264e43e2020d29d423d619a58f3b003d71b21))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([29f285b](https://github.com/useschedo/node-typescript-sdk/commit/29f285b6ea2262e69ccdae14119c4d7286da8264))
+* **ci:** upgrade `actions/github-script` ([501fa49](https://github.com/useschedo/node-typescript-sdk/commit/501fa4934b212edcba64f34729b0561907064a30))
+* fix typo in descriptions ([23dedc7](https://github.com/useschedo/node-typescript-sdk/commit/23dedc71e8d26dd52049c7bdb34021c803040850))
+* **internal:** codegen related update ([39dcd7f](https://github.com/useschedo/node-typescript-sdk/commit/39dcd7fdb27e671eaf321c31c313e819d3e5dc2f))
+* **internal:** update `actions/checkout` version ([5d4854e](https://github.com/useschedo/node-typescript-sdk/commit/5d4854ef35d5a1fcab9acf070ea3ac6c6d15c866))
+* **internal:** upgrade babel, qs, js-yaml ([d54ccff](https://github.com/useschedo/node-typescript-sdk/commit/d54ccfff06509f8917c57123db896ebc0d20d021))
+
 ## 0.1.0-alpha.58 (2025-12-06)
 
 Full Changelog: [v0.1.0-alpha.57...v0.1.0-alpha.58](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.57...v0.1.0-alpha.58)
