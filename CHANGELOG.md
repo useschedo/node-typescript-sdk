@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.60 (2026-02-06)
+
+Full Changelog: [v0.1.0-alpha.59...v0.1.0-alpha.60](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.59...v0.1.0-alpha.60)
+
+### Bug Fixes
+
+* **client:** avoid removing abort listener too early ([0fbf4c9](https://github.com/useschedo/node-typescript-sdk/commit/0fbf4c976ad43b6369618a788f4ee696e29f177c))
+
+
+### Chores
+
+* **client:** do not parse responses with empty content-length ([f4a1341](https://github.com/useschedo/node-typescript-sdk/commit/f4a134139341585505469dced3a832cba91ceef7))
+* **client:** restructure abort controller binding ([e664262](https://github.com/useschedo/node-typescript-sdk/commit/e6642624fce6a0ded504163ad7cee6ce35c8b7b2))
+
 ## 0.1.0-alpha.59 (2026-02-03)
 
 Full Changelog: [v0.1.0-alpha.58...v0.1.0-alpha.59](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.58...v0.1.0-alpha.59)
