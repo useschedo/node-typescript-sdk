@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.61 (2026-02-12)
+
+Full Changelog: [v0.1.0-alpha.60...v0.1.0-alpha.61](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.60...v0.1.0-alpha.61)
+
+### Chores
+
+* **internal:** avoid type checking errors with ts-reset ([9059bd1](https://github.com/useschedo/node-typescript-sdk/commit/9059bd1ce82e26eb88c7127fcbe46adab6ad677e))
+
 ## 0.1.0-alpha.60 (2026-02-06)
 
 Full Changelog: [v0.1.0-alpha.59...v0.1.0-alpha.60](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.59...v0.1.0-alpha.60)
