@@ -8,7 +8,7 @@ const client = new Schedo({
 });
 
 describe('resource environments', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.environments.create({ name: 'Name of your environment' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource environments', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.environments.create({ name: 'Name of your environment' });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.environments.list();
     const rawResponse = await responsePromise.asResponse();
@@ -37,7 +37,7 @@ describe('resource environments', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('delete', async () => {
     const responsePromise = client.environments.delete(0);
     const rawResponse = await responsePromise.asResponse();

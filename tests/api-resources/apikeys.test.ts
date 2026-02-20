@@ -8,7 +8,7 @@ const client = new Schedo({
 });
 
 describe('resource apikeys', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.apikeys.create({ environment_id: 1, name: 'First ApiKey' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource apikeys', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.apikeys.create({ environment_id: 1, name: 'First ApiKey' });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.apikeys.list({ 'X-API-ENVIRONMENT': 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -37,12 +37,12 @@ describe('resource apikeys', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.apikeys.list({ 'X-API-ENVIRONMENT': 0 });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('revoke', async () => {
     const responsePromise = client.apikeys.revoke(0);
     const rawResponse = await responsePromise.asResponse();
