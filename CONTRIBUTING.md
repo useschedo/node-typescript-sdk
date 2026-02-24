@@ -60,7 +60,7 @@ $ yarn link @useschedo/node-sdk
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @useschedo/node-sdk
+$ pnpm link --global @useschedo/node-sdk
 ```
 
 ## Running tests
