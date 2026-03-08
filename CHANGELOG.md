@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.61 (2026-03-08)
+
+Full Changelog: [v0.1.0-alpha.60...v0.1.0-alpha.61](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.60...v0.1.0-alpha.61)
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([930358d](https://github.com/useschedo/node-typescript-sdk/commit/930358d5bc203f1f30a7a0ee465d92498359f8bf))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([5ac8443](https://github.com/useschedo/node-typescript-sdk/commit/5ac8443ecea3f36e3c9cd01e94cdb1ca507a119d))
+* **internal/client:** fix form-urlencoded requests ([796792d](https://github.com/useschedo/node-typescript-sdk/commit/796792d5e91eb5e0c72c64c3efb7e184c809e6e1))
+* **internal:** avoid type checking errors with ts-reset ([9059bd1](https://github.com/useschedo/node-typescript-sdk/commit/9059bd1ce82e26eb88c7127fcbe46adab6ad677e))
+* **internal:** codegen related update ([803ef9c](https://github.com/useschedo/node-typescript-sdk/commit/803ef9c44931ee4f9832cea313005e03ba92a2cd))
+* **internal:** codegen related update ([72be202](https://github.com/useschedo/node-typescript-sdk/commit/72be20220ec7306b04c40fb957d61fa7d5ffa5a5))
+* **internal:** move stringifyQuery implementation to internal function ([d82db20](https://github.com/useschedo/node-typescript-sdk/commit/d82db20a7035408b21e7402121f784de6f273944))
+* **internal:** remove mock server code ([c70cd84](https://github.com/useschedo/node-typescript-sdk/commit/c70cd84eb1b2bcc627de2d02107747c6d4037060))
+* update mock server docs ([2bdb4e1](https://github.com/useschedo/node-typescript-sdk/commit/2bdb4e121c6a81928dfc0cb9bb64c88ea3d7c186))
+
 ## 0.1.0-alpha.60 (2026-02-06)
 
 Full Changelog: [v0.1.0-alpha.59...v0.1.0-alpha.60](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.59...v0.1.0-alpha.60)
