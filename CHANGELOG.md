@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.1.0-alpha.62 (2026-04-28)
+
+Full Changelog: [v0.1.0-alpha.61...v0.1.0-alpha.62](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.61...v0.1.0-alpha.62)
+
+### Features
+
+* support setting headers via env ([95ea339](https://github.com/useschedo/node-typescript-sdk/commit/95ea3395a03a441c25c143dbaf1d790ec65c5d22))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([975d7eb](https://github.com/useschedo/node-typescript-sdk/commit/975d7ebf8e405ecae7d07e89aebd76b65a6ad6c9))
+* **internal:** codegen related update ([4c7edd8](https://github.com/useschedo/node-typescript-sdk/commit/4c7edd8f21d38b2b1e3c6dc8f02bb6c3f9c3e27b))
+* **internal:** codegen related update ([0e656c2](https://github.com/useschedo/node-typescript-sdk/commit/0e656c207bece9374214769723fbb5973960980e))
+* **internal:** codegen related update ([8480cde](https://github.com/useschedo/node-typescript-sdk/commit/8480cde9404d59cd4d69e85d90e18e5ef5c5aae4))
+* **internal:** codegen related update ([e8bc15c](https://github.com/useschedo/node-typescript-sdk/commit/e8bc15c83eeb1354d5f0b134a893485e79c5d653))
+* **internal:** more robust bootstrap script ([1a76138](https://github.com/useschedo/node-typescript-sdk/commit/1a76138bc34e28f8ab08d6355b958462bb625872))
+* **internal:** tweak CI branches ([922b12a](https://github.com/useschedo/node-typescript-sdk/commit/922b12afe9206b0972d9ec597ade25b604330ee0))
+* **internal:** update dependencies to address dependabot vulnerabilities ([7dabd16](https://github.com/useschedo/node-typescript-sdk/commit/7dabd1638e3d7624d16ccceb3d8452841e14223e))
+* **internal:** update gitignore ([56c3778](https://github.com/useschedo/node-typescript-sdk/commit/56c3778fc4f109aa4cedd9c17b4b9c70a0b156c3))
+
 ## 0.1.0-alpha.61 (2026-03-08)
 
 Full Changelog: [v0.1.0-alpha.60...v0.1.0-alpha.61](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.60...v0.1.0-alpha.61)
