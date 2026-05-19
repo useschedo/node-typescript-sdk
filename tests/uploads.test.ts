@@ -1,7 +1,6 @@
 import fs from 'fs';
 import type { ResponseLike } from '@useschedo/node-sdk/internal/to-file';
 import { toFile } from '@useschedo/node-sdk/core/uploads';
-import { File } from 'node:buffer';
 
 class MyClass {
   name: string = 'foo';
