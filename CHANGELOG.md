@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.1.0-alpha.63 (2026-06-17)
+
+Full Changelog: [v0.1.0-alpha.62...v0.1.0-alpha.63](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.62...v0.1.0-alpha.63)
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([a20c3ee](https://github.com/useschedo/node-typescript-sdk/commit/a20c3ee25576c250cfce55fd25bf1748d5241ecc))
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([b85d16d](https://github.com/useschedo/node-typescript-sdk/commit/b85d16db2e14b900733b7edb17c244374deae855))
+
+
+### Chores
+
+* **format:** run eslint and prettier separately ([1e3c29d](https://github.com/useschedo/node-typescript-sdk/commit/1e3c29dcc37616b7668f550409bbcadceb2bcf7d))
+* **internal:** codegen related update ([1474147](https://github.com/useschedo/node-typescript-sdk/commit/1474147ba3cfb46220115f31c2385edbcb2c8a50))
+* redact api-key headers in debug logs ([2308df5](https://github.com/useschedo/node-typescript-sdk/commit/2308df56ccb714b5c3c41667d31a3e6d41211d98))
+* **tests:** remove redundant File import ([cd050c5](https://github.com/useschedo/node-typescript-sdk/commit/cd050c50da8081a579df00caad053ddc8097596b))
+
 ## 0.1.0-alpha.62 (2026-04-28)
 
 Full Changelog: [v0.1.0-alpha.61...v0.1.0-alpha.62](https://github.com/useschedo/node-typescript-sdk/compare/v0.1.0-alpha.61...v0.1.0-alpha.62)
